@@ -15,24 +15,24 @@
 	<cfset SaferWatchCustomerKey 	= request.qGetSystemSetupOptions.SaferWatchCustomerKey>
 
 	<cfif isdefined('url.mcNo') and len(url.mcNo) gt 1>
-		<cfset DOTNumber ="MC"& url.mcNo>  		
+		<cfset DOT_Number ="MC"& url.mcNo>  		
 	<cfelseif isdefined('url.DOTNumber') and len(url.DOTNumber) gt 1>
-		<cfset DOTNumber = url.DOTNumber> 
+		<cfset DOT_Number = url.DOTNumber> 
     </cfif>
 	
 	<cfquery name="qSystemSetupOptions" datasource="#Application.dsn#">
 			SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,FreightBroker,SaferWatchUpdateCarrierInfo
 			FROM SystemConfig
 	</cfquery>	
-	
-	<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=CarrierLookup&ServiceKey=#SaferWatchWebKey#&CustomerKey=#SaferWatchCustomerKey#&number=#DOTNumber#" method="get" >
+
+	<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=CarrierLookup&ServiceKey=#SaferWatchWebKey#&CustomerKey=#SaferWatchCustomerKey#&number=#DOT_Number#" method="get" >
 	</cfhttp>
 	
 	<cfif cfhttp.Statuscode EQ '200 OK'>	
 		<cfset variables.responsestatus = structNew()>		
 		<cfset variables.responsestatus = ConvertXmlToStruct(cfhttp.Filecontent, StructNew()) >
-		<cfif  variables.responsestatus.ResponseDO.action EQ "OK" AND structKeyExists(variables.responsestatus,"CarrierDetails")>								
-				
+		
+		<cfif  variables.responsestatus.ResponseDO.action EQ "OK" AND structKeyExists(variables.responsestatus,"CarrierDetails")>												
 				<cfif (qSystemSetupOptions.SaferWatchUpdateCarrierInfo AND carrierid GT 0 ) OR (carrierid EQ 0) >
 					<cfset CarrierName 		= variables.responsestatus.CarrierDetails.Identity.legalName>
 					<cfset  Address 				= variables.responsestatus.CarrierDetails.Identity.businessStreet>				
@@ -47,26 +47,35 @@
 					<cfset  Dotnumber 			= variables.responsestatus.CarrierDetails.dotNumber>
 					<cfset  Email 					=  replace(variables.responsestatus.CarrierDetails.Identity.emailAddress,' ','','all')>
 					 <cfset org_Dotnumber	=Dotnumber>
+					 <cfset risk_assessment = variables.responsestatus .CarrierDetails.RiskAssessment.Overall>
+					 <cfset  CellPhone 			= variables.responsestatus.CarrierDetails.Identity.cellPhone>
 				<cfelseif qSystemSetupOptions.SaferWatchUpdateCarrierInfo EQ 0 AND carrierid GT 0  >
 					<cfinvoke component="#variables.objCarrierGateway#" method="getAllCarriers" returnvariable="request.qCarrier">
 						<cfinvokeargument name="carrierid" value="#carrierid#">
 					</cfinvoke>
 					<cfset CarrierName		=request.qCarrier.CarrierName>
 					 <cfset Address				=request.qCarrier.Address>
-					 <cfset StateValCODE	=trim(request.qCarrier.StateCODE)>					
+					 <cfset StateValCODE	=trim(request.qCarrier.StateCODE)>	
+					 <cfset  State11					= StateValCODE>
 					 <cfset City						=request.qCarrier.City>
 					 <cfset Zipcode				=request.qCarrier.Zipcode>
 					 <cfset Country1				=request.qCarrier.Country>
 					 <cfset Phone					=request.qCarrier.Phone>
+					<cfset  businessPhone	=request.qCarrier.Phone>
 					 <cfset Fax						=request.qCarrier.Fax> 
 					  <cfset Email					=request.qCarrier.EmailID>
 					  <cfset Dotnumber			=request.qCarrier.DOTNUMBER>
 					 <cfset org_Dotnumber	=request.qCarrier.DOTNUMBER>
+					 <cfset Tollfree 				=request.qCarrier.TollFree>
+					 <cfset CellPhone			=request.qCarrier.Cel>
+					 <cfset Website				=request.qCarrier.website>
+					 <cfset ContactPerson	=request.qCarrier.ContactPerson>
 				</cfif>
-										
-				<cfset MCNumber    		= right(variables.responsestatus.CarrierDetails.docketNumber,len(variables.responsestatus.CarrierDetails.docketNumber)-2)>																
-				<cfset  CellPhone 			= variables.responsestatus.CarrierDetails.Identity.cellPhone>
-								
+				<cfif 	structKeyExists(variables.responsestatus.CarrierDetails,"docketNumber")	AND  len(variables.responsestatus.CarrierDetails.docketNumber) GT 0 >				
+					<cfset MCNumber    		= right(variables.responsestatus.CarrierDetails.docketNumber,len(variables.responsestatus.CarrierDetails.docketNumber)-2)>																
+				</cfif>
+				
+				
 				<cfset  InsExpDateLive =  variables.responsestatus.CarrierDetails.Identity.emailAddress>
 				<cfif org_Dotnumber EQ variables.responsestatus.CarrierDetails.dotNumber >
 					<cfset risk_assessment = variables.responsestatus .CarrierDetails.RiskAssessment.Overall>
@@ -80,12 +89,19 @@
 						<cfset insAgentName 	= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].attnToName>
 						<cfset formatRequired  = variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].address&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].city&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].stateCode&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].postalCode&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].countryCode>
 						<cfset insPolicy				= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem[1].policyNumber>
+						
 					<cfelse>
 						<cfset insCarrier			= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.companyName>
 						<cfset InsAgentPhone	= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.phone>
 						<cfset insAgentName 	= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.attnToName>
 						<cfset formatRequired  = variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.address&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.city&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.stateCode&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.postalCode&","&variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.countryCode>
 						<cfset insPolicy				= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.policyNumber>
+						<cfset InsExpDateLive 			= variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.effectiveDate >
+						<cfif variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.insuranceType  NEQ "BIPD" >
+							<cfset CARGOExpirationDate = variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.effectiveDate >
+						<cfelse>
+							<cfset ExpirationDate = variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem.effectiveDate >
+						</cfif>
 					</cfif>
 				</cfif>
 				<cfset bipd_Insurance_on_file	= variables.responsestatus.CarrierDetails.FMCSAInsurance.bipdOnFile>
@@ -230,7 +246,7 @@
 		<cfset message="Data not available. Please check the mc## and try again.">
 	</cfif>
 	<cfif structkeyExists(url,"DOTNumber") >
-		<cfset message="Data not available. Please check the DOT## and try again.">
+		<cfset message="Data not available. Please check the DOT## and try again."&cfcatch>
 	</cfif>
 </cfcatch>
 

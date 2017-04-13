@@ -34,7 +34,7 @@
 		SELECT upper(LTRIM(CarrierNAME)) Text , car.CarrierID Value,car.Cel AS cell, car.Fax,car.EmailID,upper(CarrierNAME)AS carrierName,
 		car.City, GETDATE() AS currentDate, car.StateCode,car.zipcode,car.Address, car.InsExpDate,
 		Phone phone,
-		Case car.Status WHEN 1 THEN 'ACTIVE' ElSE 'INACTIVE' end Status,li.ExpirationDate as BIPDExpirationDate,li.CARGOExpirationDate,MCNumber,DOTNumber
+		Case car.Status WHEN 1 THEN 'ACTIVE' ElSE 'INACTIVE' end Status,li.ExpirationDate as BIPDExpirationDate,li.CARGOExpirationDate,MCNumber,DOTNumber,RiskAssessment
 
 		FROM Carriers car
 		LEFT  JOIN lipublicfmcsa li
@@ -80,16 +80,9 @@
 				<cfelse>
 					<cfset number = 0 >
 				</cfif>
-				<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=CarrierLookup&ServiceKey=#qSystemSetupOptions.SaferWatchWebKey#&CustomerKey=#qSystemSetupOptions.SaferWatchCustomerKey#&number=#variables.number#" method="get" >
-				</cfhttp>	
-				<cfif cfhttp.Statuscode EQ '200 OK'>	
-					<cfset variables.resStruct = ConvertXmlToStruct(cfhttp.Filecontent, StructNew())>
-					<cfif structKeyExists(variables.resStruct ,"CarrierDetails") AND structKeyExists(variables.resStruct .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.resStruct .CarrierDetails.RiskAssessment,"Overall")  >
-						<cfset risk_assessment = variables.resStruct .CarrierDetails.RiskAssessment.Overall>
-					</cfif>			
-				<cfelse>
-					<cfset risk_assessment = "">
-				</cfif>
+				
+					<cfset risk_assessment = qrygetFilterCarriers.RiskAssessment >
+				
 				<cfset link = "http://www.saferwatch.com/swCarrierDetailsLink.php?&number=#number#">
 				<cfif risk_assessment EQ "Unacceptable">
 					<cfset risk_assessment = "images/SW-Red.png" >
@@ -101,27 +94,7 @@
 					<cfset risk_assessment = "images/SW-Blank.png">
 				</cfif>																
 		</cfif>
-		<cfif qSystemSetupOptions.SaferWatch EQ 1  AND qSystemSetupOptions.FreightBroker  EQ 1 AND  structKeyExists(variables.resStruct ,"CarrierDetails") >
-			<cfset isFirstIteration='no'>			
-			{
-				"label": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.legalName),'"','&apos;','all')#",
-				"value": "#replace(TRIM(qrygetFilterCarriers.value),'"','&apos;','all')#",
-				"name" : "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.legalName),'"','&apos;','all')#",
-				"location": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessStreet&","&variables.resStruct.CarrierDetails.Identity.businessCity&","&variables.resStruct.CarrierDetails.Identity.businessState&"-"&variables.resStruct.CarrierDetails.Identity.businessZipCode),'"','&apos;','all')#",
-				"city" : "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessCity),'"','&apos;','all')#",
-				"state": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessState),'"','&apos;','all')#",
-				"zip": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessZipCode),'"','&apos;','all')#",
-				"phoneNo": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessPhone),'"','&apos;','all')#", 
-				"cell": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.cellPhone),'"','&apos;','all')#",
-				"fax": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.businessFax),'"','&apos;','all')#",
-				"InsExpDate": "#replace(TRIM(DateFormat(qrygetFilterCarriers.InsExpDate,'mm/dd/yyyy')),'"','&apos;','all')#",
-				"email": "#replace(TRIM(variables.resStruct.CarrierDetails.Identity.emailAddress),'"','&apos;','all')#",
-				"insuranceExpired" : "#replace(TRIM(insuranceExpired),'"','&apos;','all')#",
-				"status" : "#replace(TRIM(qrygetFilterCarriers.Status),'"','&apos;','all')#",
-				"link":"#link#",
-				"risk_assessment":"#risk_assessment#"
-			}
-		<cfelse>
+	
 			<cfset isFirstIteration='no'>
 			{
 				"label": "#replace(TRIM(qrygetFilterCarriers.carrierName),'"','&apos;','all')#",
@@ -141,7 +114,7 @@
 				"link":"#link#",
 				"risk_assessment":"#risk_assessment#"
 			}
-		</cfif>
+	
 	</cfloop>
 	
 ]

@@ -375,10 +375,7 @@
 							<cfelse>
 								<cfset number = 0 >
 							</cfif>
-							<cfinvoke component="#variables.objCarrierGateway#" method="CarrierRiskAssessment" returnvariable="risk_assessment">
-								<cfinvokeargument name="MCNumber" value="MC#qCarrier.MCNumber#">
-								<cfinvokeargument name="DOTNumber" value="#qCarrier.DOTNumber#">
-							</cfinvoke>						
+							<cfset risk_assessment = 	qCarrier.RiskAssessment>					
 								<a href="http://www.saferwatch.com/swCarrierDetailsLink.php?&number=#number#" target="_blank">
 									<cfif risk_assessment EQ "Unacceptable">
 										&nbsp;<img style="vertical-align:bottom;" src="images/SW-Red.png" height="16px"  width="25px">

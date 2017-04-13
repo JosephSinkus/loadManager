@@ -985,6 +985,8 @@ Changing 571 Line Extra line comment of consigneeZipcode already use in getdista
     	<cfinvoke component="#variables.objloadGateway#" method="getloadAttachedFiles" linkedid="#url.loadID#" fileType="1" returnvariable="request.filesAttached" /> 
         <div class="search-panel">
         </div>
+
+<!---Color Change #82bbef --->
         <div class="white-con-area" style="height: 40px;background-color: ##82bbef;">
             <div style="float: left; min-height: 40px; <cfif local.lockloadStatsFlag> width: 17%;<cfelse> width: 43%; </cfif>" id="divUploadedFiles">
                 <cfif request.filesAttached.recunt neq 0>
@@ -1009,6 +1011,8 @@ Changing 571 Line Extra line comment of consigneeZipcode already use in getdista
     <cfelse>
 		<cfset tempLoadId = #createUUID()#>
 		<cfset session.checkUnload ='add'>
+
+<!---Color Change #82bbef --->
 		<div class="white-con-area" style="height: 40px;background-color: ##82bbef;">
 			<div style="float: left; min-height: 40px; width: 43%;" id="divUploadedFiles">
 					&nbsp;<a style="display:block;font-size: 13px;padding-left: 10px;color:white;" href="##" onclick="popitup('../fileupload/multipleFileupload/MultipleUpload.cfm?id=#tempLoadId#&attachTo=1&user=#session.adminusername#&newFlag=1&dsn=#dsn#&attachtype=Load')">
@@ -1564,6 +1568,8 @@ Changing 571 Line Extra line comment of consigneeZipcode already use in getdista
             <input name="customerID" id="customerID" type="hidden" value="#customerID#" />
             <input name="isPayer" id="isPayer" type="hidden" value="#isPayer#" />
             <div class="clear"></div>
+
+<!---Color Change #82bbef --->
             <div class="white-con-area" style="height: 36px;background-color: ##82bbef;">
                 <div style="float: left; width: 100%;padding-left:18px;"><h2 style="color:white;font-weight:bold;">Customer</h2></div>
             </div>
@@ -1976,6 +1982,7 @@ Changing 571 Line Extra line comment of consigneeZipcode already use in getdista
 						<div class="clear"></div>
 					</div>	
 
+<!---Color Change #82bbef --->
 					<div class="white-con-area" style="height: 36px;background-color: ##82bbef;">
 						<div class="pg-title-carrier" style="float: left; width: 100%;padding-left:18px;">
 							<h2 style="color:white;font-weight:bold;">#variables.freightBroker#</h2>

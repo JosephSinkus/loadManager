@@ -3408,16 +3408,17 @@ function getConfirmation() {
 }
 
 function getsaferwatchConfirmation() {
-  	if(confirm("Load Manager uses the SaferWatch API to update carrier insurance information but Load Manager is not endorsed or certified by the SaferWatch. Are you ready to update this Carriers data?")){
+  	if(confirm("Are you ready to update this Carriers data using SaferWatch API ?")){
 		var dotnumber=$("#DOTNumber").val();
 		var MCNumber=$("#MCNumber").val();
 		var editid=$("#editid").val();
 		var stoken=$("#stoken").val();
-		if(dotnumber !="") {
-			window.location='index.cfm?event=addcarrier&DOTNumber='+dotnumber+'&carrierid='+editid+'&saferWatchUpdate=1&'+stoken+'';  
-		} else if(MCNumber !=""){
+		 if(MCNumber !=""){
 			window.location='index.cfm?event=addcarrier&mcno='+MCNumber+'&carrierid='+editid+'&saferWatchUpdate=1&'+stoken+''; 
-		} else {
+		}else if(dotnumber !="") {
+			window.location='index.cfm?event=addcarrier&DOTNumber='+dotnumber+'&carrierid='+editid+'&saferWatchUpdate=1&'+stoken+'';  
+		} 
+		else {
 			alert('Please enter DotNumber or mc number');
 			return false;
 		}

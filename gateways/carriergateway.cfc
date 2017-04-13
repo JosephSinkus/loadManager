@@ -36,7 +36,7 @@
     InsAgent,InsAgentPhone,InsPolicyNumber,InsExpDate,Track1099,InsLimit, 
 	StateCode,
     ZipCode,EquipmentNotes,Status,CreatedBy,LastModifiedBy,CreatedDateTime,LastModifiedDateTime,
-    City,country,phone,Fax,Cel,EmailID,website,TollFree,IsInsVerified,IsInsDate,IsContractVerified,IsW9,IsReferences,CreatedByIP,GUID,notes,CarrierTerms,VendorID,DOTNumber,SaferWatch)
+    City,country,phone,Fax,Cel,EmailID,website,TollFree,IsInsVerified,IsInsDate,IsContractVerified,IsW9,IsReferences,CreatedByIP,GUID,notes,CarrierTerms,VendorID,DOTNumber,SaferWatch,RiskAssessment)
 	OUTPUT inserted.CarrierID 
     values(
            <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.CarrierName#">,
@@ -114,7 +114,8 @@
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.terms#" null="#not len(arguments.formStruct.terms)#">,
       <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.venderId#" null="#not len(arguments.formStruct.venderId)#">,
       <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.DOTNumber#" null="#not len(arguments.formStruct.DOTNumber)#">,
-		<cfqueryparam cfsqltype="cf_sql_varchar" value="1">
+		<cfqueryparam cfsqltype="cf_sql_varchar" value="1">,
+		<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.risk_assessment#" null="#not len(arguments.formStruct.risk_assessment)#">
            )
      SET NOCOUNT OFF
  </cfquery>
@@ -461,6 +462,7 @@
 	<cfelse>
 		,SaferWatch = 0
 	</cfif>
+	,RiskAssessment=<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.formStruct.risk_assessment#" null="#not len(arguments.formStruct.risk_assessment)#">
       where CarrierID='#arguments.formStruct.editid#'
  </cfquery>
 
@@ -1109,6 +1111,32 @@
 			<cfreturn "">
 		</cfif>
 		<cfreturn risk_assessment>
+	</cffunction>
+	
+	<cffunction name="UpdateWatchList" access="public"  returntype="any">
+		<cfargument name="DOTNumber" type="string"  default="0">
+		<cfargument name="MCNumber" type="string"  default="0">
+		<cfargument name="SaferWatch" type="string"  default="0">
+		<cfargument name="bit_addWatch" type="string"  default="0">
+		<cfargument name="editid" type="string"  default="0">
+		<cfquery name="qCarrier" datasource="#variables.dsn#">
+	    	SELECT SaferWatch
+			FROM Carriers
+			WHERE CarrierID = '#arguments.editid#'
+	    </cfquery>
+		 <cfif StructKeyExists(arguments,"SaferWatch") AND  arguments.SaferWatch EQ 1 >
+			<cfif StructKeyExists(arguments,"bit_addWatch") AND arguments.bit_addWatch EQ 1 AND qCarrier.SaferWatch EQ 0 >
+				<cfinvoke component="#variables.objCarrierGateway#" method="AddWatch" returnvariable="message">
+					<cfinvokeargument name="DOTNumber" value="#arguments.DOTNumber#">
+					<cfinvokeargument name="MCNumber" value="MC#arguments.MCNumber#">
+				</cfinvoke>
+			<cfelseif  qCarrier.SaferWatch EQ 1 AND  NOT StructKeyExists(arguments,"bit_addWatch")>
+				<cfinvoke component="#variables.objCarrierGateway#" method="RemoveWatch" returnvariable="message">
+					<cfinvokeargument name="DOTNumber" value="#arguments.DOTNumber#">
+					<cfinvokeargument name="MCNumber" value="MC#arguments.MCNumber#">
+				</cfinvoke>
+			</cfif>						
+		 </cfif>
 	</cffunction>
 	
 	<cffunction name="ConvertXmlToStruct" access="public" returntype="struct" output="true"  hint="Parse raw XML response body into ColdFusion structs and arrays and return it.">

@@ -138,9 +138,9 @@
 						<cfinvoke component="#variables.objLoadGatewaynew#" method="EditLoad" returnvariable="message1">
 						   <cfinvokeargument name="frmstruct" value="#formStruct#">
 						 </cfinvoke> 
-						 <cfinvoke component="#variables.objLoadGatewaynew#" method="UpdateCarrier" returnvariable="message">
+<!---						 <cfinvoke component="#variables.objLoadGatewaynew#" method="UpdateCarrier" returnvariable="message">
 							<cfinvokeargument name="formStruct" value="#formStruct#">
-						</cfinvoke>
+						</cfinvoke>--->
 						<cfset message = message1.split("~~")>
 					<cfelse>
 						<cfset message[1] =1>

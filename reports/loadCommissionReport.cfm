@@ -179,6 +179,12 @@
                 <cfelse>
 					<cfset tempRootPath = expandPath("../reports/loadCommissionReportSCIPageBreak.cfr")>
 				</cfif>
+
+            	<cfif url.GroupBy eq "Driver">
+                	<cfset tempRootPath = expandPath("../reports/loadCommissionReportSCIPageBreakCarrierPay.cfr")>
+                <cfelse>
+					<cfset tempRootPath = expandPath("../reports/loadCommissionReportSCIPageBreak.cfr")>
+				</cfif>                
             
 			<cfelse>
 				<cfset tempRootPath = expandPath("../reports/loadCommissionReportSCI.cfr")> 

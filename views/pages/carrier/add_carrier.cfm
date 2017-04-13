@@ -370,16 +370,8 @@
 			 <cfset DOTNumber=request.qCarrier.DOTNUMBER>
 		</cfif>					
 		<cfif request.qGetSystemSetupOptions.SaferWatch EQ 1 >
-			<cfinvoke component="#variables.objCarrierGateway#" method="CarrierLookup" returnvariable="variables.responsestatus">
-				<cfinvokeargument name="MCNumber" value="MC#MCNumber#">
-				<cfinvokeargument name="DOTNumber" value="#DOTNumber#">
-			</cfinvoke>
-			<cfif  IsStruct(variables.responsestatus) AND structKeyExists(variables.responsestatus,"ResponseDO") AND variables.responsestatus.ResponseDO.action EQ "OK" AND structKeyExists(variables.responsestatus,"CarrierDetails")>								
-				<cfif structKeyExists(variables.responsestatus ,"CarrierDetails") AND variables.responsestatus.CarrierDetails.dotNumber EQ  DOTNumber AND variables.responsestatus.CarrierDetails.docketNumber EQ "MC#MCNumber#" AND structKeyExists(variables.responsestatus .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.responsestatus .CarrierDetails.RiskAssessment,"Overall")  >
-					<cfset risk_assessment = variables.responsestatus .CarrierDetails.RiskAssessment.Overall>
-				</cfif>					
-			</cfif>
-		</cfif>
+			<cfset risk_assessment = request.qCarrier.RiskAssessment>
+		</cfif>		
 		 <cfset CellPhone=request.qCarrier.Cel> 
 		 <cfset Fax=request.qCarrier.Fax> 
 		 <cfset Tollfree=request.qCarrier.Tollfree>
@@ -530,7 +522,7 @@
 					<cfset number = DOTNumber>
 				<cfelse>
 					<cfset number = 0 >
-				</cfif>
+				</cfif>				
 					<a href="http://www.saferwatch.com/swCarrierDetailsLink.php?&number=#number#" target="_blank">
 						<cfif risk_assessment EQ "Unacceptable">
 							&nbsp;<img style="vertical-align:bottom;" src="images/SW-Red.png">
@@ -547,18 +539,18 @@
 		</cfif>
 		<div style="float:right">
 			<input id="mailDocLink" style="width:110px !important;line-height: 15px;" type="button" class="normal-bttn"value="Email Doc" <cfif mailsettings>data-allowmail="true"<cfelse>data-allowmail="false"</cfif>/>
-		  <cfif requireValidMCNumber EQ True>	
-			<cfinput name="Save" type="submit" class="normal-bttn" value="Save" onclick="return validateCarrier(frmCarrier,'#application.dsn#','#ValidMCNO#','driver');" onfocus="checkUnload();" style="width:44px;" />
-		  <cfelse>
-			<cfinput name="Save" type="submit" class="normal-bttn" value="Save" onclick="return validateCarrier(frmCarrier,'#application.dsn#');" onfocus="checkUnload();" style="width:44px;" />
-		  </cfif>	
+		  
 		  <cfif request.qGetSystemSetupOptions.SaferWatch EQ 1 >			
 				<cfinput name="Update" id="update_btn" type="button" class="normal-bttn"  onclick="return getsaferwatchConfirmation();"      value="Update Via SaferWatch" style="width:64px;line-height:15px;" />	
 		  <cfelse>
 			<cfset variables.updateLabel = "">
 			<cfinput name="Update" id="update_btn" type="button" class="normal-bttn"  onclick="return getConfirmation();"      value="Update Via FMCSA" style="width:64px;line-height:15px;" />	
 		  </cfif>
-			
+			<cfif requireValidMCNumber EQ True>	
+			<cfinput name="Save" type="submit" class="normal-bttn" value="Save" onclick="return validateCarrier(frmCarrier,'#application.dsn#','#ValidMCNO#','driver');" onfocus="checkUnload();" style="width:44px;" />
+		  <cfelse>
+			<cfinput name="Save" type="submit" class="normal-bttn" value="Save" onclick="return validateCarrier(frmCarrier,'#application.dsn#');" onfocus="checkUnload();" style="width:44px;" />
+		  </cfif>	
 		</div>
 	</div>
 	</h1>
@@ -604,15 +596,16 @@
 	<div style="clear:left;"></div>
 </cfif>
 <cfif isdefined("message") and len(message)>
-<div class="msg-area" style="margin-left: 13px;">#message#</div>
+<div class="msg-area" style="margin-left: 0px;">#message#</div>
 </cfif>
-
+				
 			<div class="white-con-area">
 				<!---<div class="white-top"></div>onchange="getMCDetails('#getMCNoURL#',this.value,'#application.dsn#','carrier');" --->
 				
 				<!--- <div class="gap"></div> --->
 				<div class="white-mid">
                      <cfinput type="hidden" id="editid" name="editid" value="#editid#">
+					 <input type="hidden" name="risk_assessment" value="#risk_assessment#" >
 					 <cfinput type="hidden" id="SaferWatch" name="SaferWatch" value="#val(request.qGetSystemSetupOptions.SaferWatch)#">
 						<div class="form-con">
 							<fieldset class="carrierFields">

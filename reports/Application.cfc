@@ -77,7 +77,7 @@
     <cffunction name="OnRequest" >		
 		<cfargument name="targetPage" required="true"/ >
 		<cfif IsDefined("URL.reinit")>
-			<cfinclude template="userCountScheduler.cfm">
+			<!---<cfinclude template="userCountScheduler.cfm">--->
 			<cfscript>
 				StructDelete(Application, "objLoadGatewayAdd", "True");
 				StructDelete(Application, "objloadGateway", "True");

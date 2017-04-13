@@ -5115,6 +5115,7 @@
 	<!--- GetChangedCarriers--->
 	<cffunction name="GetChangedCarriers" access="public"  returntype="any">				
 		<cfset msg =  "">
+		<cfset risk_assessment = "">
 		<cfquery name="qSystemSetupOptions" datasource="#variables.dsn#">
 	    	SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,SaferWatchUpdateCarrierInfo,SaferWatchCarrierUpdatedDate
 			FROM SystemConfig
@@ -5143,7 +5144,8 @@
 											CarrierName=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.legalName#">,
 											Address=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessStreet#">,
 											StateCode = <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessState#">,
-											Zipcode=   <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessZipCode#">,				
+											Zipcode=   <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessZipCode#">,	
+											country	=   <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessCountry#">,											
 											LastModifiedBy= <cfqueryparam cfsqltype="cf_sql_varchar" value="#session.adminUserName#">,
 											LastModifiedDateTime=<cfqueryparam cfsqltype="cf_sql_date" value="#Now()#">,
 											City= <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessCity#">,
@@ -5153,6 +5155,7 @@
 											EmailID=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.emailAddress#">,				
 											DOTNumber=<cfqueryparam cfsqltype="cf_sql_varchar" value="#dotNumber#">			
 											,MCNumber = <cfqueryparam cfsqltype="cf_sql_varchar" value="#McNumber#">
+											,RiskAssessment =  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].RiskAssessment.Overall#">
 											,SaferWatch = 1
 											WHERE  CarrierID IN (<cfqueryparam cfsqltype="cf_sql_varchar" list="yes"  value="#valueList(qrygetFilterCarriers.CarrierID)#">)	
 								</cfquery >
@@ -5163,7 +5166,7 @@
 						<cfset msg = "Changed carriers details updated successfully.">
 						<cfquery name="qryupdateCarrierUpdateDate" datasource="#Application.dsn#">
 							UPDATE SystemConfig SET SaferWatchCarrierUpdatedDate = '#Dateformat(now()-1,'yyyy-mm-dd')#'
-						</cfquery >
+						</cfquery >						
 				<cfelse>
 					<cfset msg =  "">
 				</cfif>	
@@ -5171,6 +5174,28 @@
 				<cfset msg =  "Cannot Update changed carriers details.">
 			</cfcatch>				
 			</cftry>					
+		</cfif>
+		<cfif qSystemSetupOptions.SaferWatch EQ 1 >
+			<cfquery name="qryCarrier" datasource="#Application.dsn#">
+				SELECT *  FROM   Carriers
+			</cfquery >
+			<cfloop query="qryCarrier">
+				<cfif qryCarrier.RiskAssessment EQ "">
+					<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=CarrierLookup&ServiceKey=#qSystemSetupOptions.SaferWatchWebKey#&CustomerKey=#qSystemSetupOptions.SaferWatchCustomerKey#&number=MC#qryCarrier.MCNumber#" method="get" >
+					</cfhttp>	
+					<cfif cfhttp.Statuscode EQ '200 OK'>	
+						<cfset variables.resStruct = ConvertXmlToStruct(cfhttp.Filecontent, StructNew())>
+						<cfif structKeyExists(variables.resStruct ,"CarrierDetails") AND variables.resStruct.CarrierDetails.dotNumber EQ  qryCarrier.DOTNumber AND variables.resStruct.CarrierDetails.docketNumber EQ "MC"&qryCarrier.MCNumber AND structKeyExists(variables.resStruct .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.resStruct .CarrierDetails.RiskAssessment,"Overall")  >
+							<cfset risk_assessment = variables.resStruct .CarrierDetails.RiskAssessment.Overall>
+						</cfif>			
+					</cfif>		
+					<cfquery name="qryupdate" datasource="#Application.dsn#">				
+							UPDATE Carriers 
+							SET RiskAssessment = '#risk_assessment#'
+							WHERE  CarrierID='#qryCarrier.carrierID#'		
+					</cfquery >
+				</cfif>
+			</cfloop>
 		</cfif>
 		<cfreturn msg >
 	</cffunction>
@@ -5240,10 +5265,10 @@
 	<cffunction name="UpdateCarrier" access="public" output="false" returntype="any">
 		<cfargument name="formStruct" type="struct" required="yes">
 		<cfquery name="qSystemSetupOptions" datasource="#Application.dsn#">
-			SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,FreightBroker
+			SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,FreightBroker,SaferWatchUpdateCarrierInfo
 			FROM SystemConfig
 	</cfquery>
-		<cfif trim(arguments.formStruct.carrierID) NEQ ""  AND qSystemSetupOptions.SaferWatch EQ 1 AND qSystemSetupOptions.FreightBroker  EQ 1>
+		<cfif trim(arguments.formStruct.carrierID) NEQ ""  AND qSystemSetupOptions.SaferWatch EQ 1 AND qSystemSetupOptions.FreightBroker  EQ 1 AND SaferWatchUpdateCarrierInfo EQ 1>
 			<cfquery name="qrygetFilterCarriers" datasource="#Application.dsn#">
 				SELECT MCNumber,DOTNumber
 				FROM Carriers car
@@ -5280,6 +5305,7 @@
 								EmailID=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.responsestatus.CarrierDetails.Identity.emailAddress#">,				
 								DOTNumber=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.responsestatus.CarrierDetails.dotNumber #" null="#not len(variables.responsestatus.CarrierDetails.dotNumber )#">			
 								,MCNumber = <cfqueryparam cfsqltype="cf_sql_varchar" value="#right(variables.responsestatus.CarrierDetails.docketNumber,len(variables.responsestatus.CarrierDetails.docketNumber)-2)#">
+								,RiskAssessment =  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.responsestatus.CarrierDetails.RiskAssessment.Overall#">
 								,SaferWatch = 1
 								WHERE  CarrierID='#arguments.formStruct.carrierID#'		
 					</cfquery >

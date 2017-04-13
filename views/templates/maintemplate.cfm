@@ -5,7 +5,7 @@
 		<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	  
-		<title>Load Management</title>
+		<title>Trucking Dispatch</title>
 		<!---<cfif cgi.query_string DOES NOT CONTAIN 'addload'>
         <cfif request.event NEQ "addload">
 			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3"></script>
@@ -265,7 +265,7 @@
 				</cfif>
 				</div>
 				 
-				<div style="width:5%; float:left; margin-top:2%;"> Version 2.79.161012</div>
+				<div style="width:5%; float:left; margin-top:2%;"> Version 2.80.170113</div>
 				<div style="clear:left;"></div>
 				<table width="100%" border="0px" cellpadding="0px" style="height:100%;" cellspacing="0px"<cfif Not StructKeyExists(request, "content") And StructKeyExists(request, "tabs")> style="height:100%;"</cfif>>
 					<tr>

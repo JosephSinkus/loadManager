@@ -259,7 +259,7 @@ border-bottom:1px solid #5d8cc9; }
 
 .white-mid div.form-con fieldset input.small_chk{ float:right; width:14px; border:0px solid #b3b3b3; padding:0px 0px 0 0px; margin:0 0 2px 0; font-size:11px; margin-right:8px !important;}
 
-.white-mid div.form-con fieldset input[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:125px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:140px !important; cursor:pointer;}
 
 .white-mid div.form-con fieldset input[type=submit]{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:125px !important; cursor:pointer;}
 
@@ -296,11 +296,7 @@ border-bottom:1px solid #5d8cc9; }
 .white-mid div.form-con fieldset select.medium{ float:left; width:111px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 4px 0; font-size:11px;}
 .white-middiv.form-con fieldset label.per{ float:left; text-align:left; width:35px; padding:0 0px 0 5px; font-size:11px; font-weight:bold; color:#000000;}
 
-/* Blue
-.white-mid div.form-con fieldset input.blue-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#273d50; width:125px !important; cursor:pointer;} */
-
-/*Green*/
-.white-mid div.form-con fieldset input.blue-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#82bbef; width:125px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input.blue-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#273d50; width:125px !important; cursor:pointer;}
 
 .white-mid div.form-con fieldset input.green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#599700; width:125px !important; cursor:pointer;}
 .white-mid div.form-con fieldset input.green-btnUnlock{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#599700; width:125px !important; cursor:pointer;}
@@ -663,7 +659,7 @@ margin: 0 0 10px; padding: 2px 2px 0; width: 188px;}
   }
  .ui-widget-header{
 	background:#fff;
-	background-color: #82bbef !important;
+	background-color: #82BBEF !important;
     border: 1px solid #aaaaaa;
     color: #fff;
     font-weight: bold;
@@ -682,8 +678,8 @@ margin: 0 0 10px; padding: 2px 2px 0; width: 188px;}
  .PlusToggleButton{
 	color:#273d50;font-size: 18px !important;float:left;margin-left: 23px;margin-top: 6px;cursor:pointer;
 }
-/*change the background color  #c1ffc1 #dfeffc */
-.white-top ,.white-bot,.white-mid,.carrier-gap,.form-heading,.form-heading-loop,.ui-widget-content,.white-bottom,.carrier-links,.carrier-mid{background-image: none;background-color:#dfffdf !important;}
+/*change the background color*/
+.white-top ,.white-bot,.white-mid,.carrier-gap,.form-heading,.form-heading-loop,.ui-widget-content,.white-bottom,.carrier-links,.carrier-mid{background-image: none;background-color:#dfeffc !important;}
 .calculationblock{
 	width: 395px;border: 1px #b3b3b3 solid;padding-bottom: 10px;margin-top: 7px;
 }
@@ -698,7 +694,7 @@ margin: 0 0 10px; padding: 2px 2px 0; width: 188px;}
 	 margin-top: 5px;
     width: 176px;
 }*/
-/*toolTipCustomer interface of load page #82bbef */
+/*toolTipCustomer interface of load page*/
 .ui-tooltip, .arrow:after {
     background: #82bbef !important;
     border: 2px solid white;

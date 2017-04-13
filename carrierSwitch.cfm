@@ -52,24 +52,24 @@
            
 			<cfcase value="addcarrier:process">
                  <cfset formStruct = structNew()>
-				 <cfset formStruct = form>
+				 <cfset formStruct = form>				 
                  <cfif isdefined("form.editid") and len(form.editId) gt 1>
 					<cfinvoke component="#variables.objCarrierGateway#" method="UpdateCarrier" returnvariable="message">
 						<cfinvokeargument name="formStruct" value="#formStruct#">
-				    </cfinvoke>
-					 <cfif StructKeyExists(form,"SaferWatch") AND  form.SaferWatch EQ 1 >
-						<cfif StructKeyExists(form,"bit_addWatch") AND form.bit_addWatch EQ 1>
-							<cfinvoke component="#variables.objCarrierGateway#" method="AddWatch" returnvariable="message">
-								<cfinvokeargument name="DOTNumber" value="#formStruct.DOTNumber#">
-								<cfinvokeargument name="MCNumber" value="MC#formStruct.MCNumber#">
-							</cfinvoke>
-						<cfelse>
-							<cfinvoke component="#variables.objCarrierGateway#" method="RemoveWatch" returnvariable="message">
-								<cfinvokeargument name="DOTNumber" value="#formStruct.DOTNumber#">
-								<cfinvokeargument name="MCNumber" value="MC#formStruct.MCNumber#">
-							</cfinvoke>
-						</cfif>						
-					 </cfif>
+				    </cfinvoke>					
+					<cfif formStruct.SaferWatch EQ 1 >
+						<cfinvoke component="#variables.objCarrierGateway#" method="UpdateWatchList" returnvariable="message">
+							<cfinvokeargument name="DOTNumber" value="#formStruct.DOTNumber#">
+							<cfinvokeargument name="MCNumber" value="#formStruct.MCNumber#"> 
+							<cfinvokeargument name="SaferWatch" value="#formStruct.SaferWatch#">
+							<cfif  StructKeyExists(formStruct,"bit_addWatch")>
+								<cfinvokeargument name="bit_addWatch" value="#formStruct.bit_addWatch#">   
+							<cfelse>
+								<cfinvokeargument name="bit_addWatch" value="0">
+							</cfif>
+							<cfinvokeargument name="editid" value="#formStruct.editid#">					    
+						</cfinvoke>
+					</cfif>
 				<cfloop from="1" to="5" index="fldID"> 
 					<cfinvoke component="#variables.objCarrierGateway#" method="UpdateCarrierOffices" returnvariable="message">
 						<cfinvokeargument name="formStruct" value="#formStruct#">
