@@ -1,0 +1,3 @@
+<cfscript>
+    WriteDump(cgi);
+</cfscript>

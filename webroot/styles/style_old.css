@@ -1,0 +1,555 @@
+/* CSS Document */
+body{ background:url(../images/gr-bg.gif) left top repeat-x #bbd2ec; font:normal 11px/16px Arial, Helvetica, sans-serif; color:#000000; padding:0; margin:0;}
+body.cls{ background:none; font:normal 11px/16px Arial, Helvetica, sans-serif; color:#000000; padding:0; margin:15px 0 0 0;}
+a{ color:#3a5b96; text-decoration:none;}
+a:hover{ text-decoration:none;}
+a img{ border:none;}
+.bold{font-weight:900 !important}
+div,span,p,img,ul,ol,li,a,em,ins,hr,form,fieldset,legend,label,input,select,textarea,h1,h2,h3,h4,h5,h6,table,tr,td,thead,tbody,tfoot,th{ padding:0; margin:0;}
+.right-border{border-right:1px solid #000 !important;}
+ul{ list-style-type:none;}
+input[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:4px; color:#4c4c4c; width:125px !important; cursor:pointer;}
+input[type=submit]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:15px; text-align:center; margin:1px; margin-top:4px; color:#ba0000; width:125px !important; cursor:pointer; color:#4c4c4c;}
+.button{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:15px; text-align:center; margin:1px; margin-top:4px; color:#ba0000; width:125px !important; cursor:pointer; color:#4c4c4c;}
+
+.clear{ padding:0; margin:0; line-height:0; font-size:0; height:0; clear:both;}
+.container{ width:100%; background:url(../images/top-lighting-bg.jpg) center top no-repeat; min-height:324px;}
+.container-pr{ width:100%; background:none; min-height:324px;}
+.top-head{ width:999px; margin:0 auto;}
+.navigation{ width:999px; padding:0; margin:0 auto; height:34px; background:url(../images/main-navbg.jpg) left top no-repeat; }
+.navigation tr{ padding:0; margin:0;}
+.navigation tr td{ padding:0 16px 0 16px; margin:0; float:left; display:block; background:url(../images/nav-libg.gif) right 12px no-repeat; line-height:36px;}
+.navigation tr td.nobg{ background:none; }
+.navigation tr td a{ color:#3a5b96; font-size:13px; text-decoration:none;}
+.navigation tr td a:hover{ color:#8abd32; text-decoration:none;}
+.navigation tr td a.active{ color:#8abd32; text-decoration:none;}
+.below-nav{ width:999px; padding:0; margin:0 auto; background:url(../images/below-navbg.gif) left top no-repeat; height:29px;}
+.below-navleft{ width:548px; float:left; display:block; padding:0; margin:0;}
+.below-navleft ul{ padding:0; margin:0;}
+.below-navleft ul li{ float:left; display:block;}
+.below-navleft ul li a{ padding:0 20px 0 20px; display:block; text-decoration:none; color:#c1d5ed; background:none; line-height:22px;}
+.below-navleft ul li a:hover{ text-decoration:none; color:#ffffff; background:#8abd32;}
+.below-navleft ul li a.active{ text-decoration:none; color:#ffffff; background:#8abd32;}
+
+.below-navleft{ width:548px; float:left; display:block; padding:0; margin:0;}
+.below-navleft tr{ padding:0; margin:0;}
+.below-navleft tr td{ float:left; display:block;}
+.below-navleft tr td a{ padding:0 2px 0px 10px; display:block; text-decoration:none; color:#c1d5ed; background:none; line-height:22px;}
+.below-navleft tr td a:hover{ text-decoration:none; color:#ffffff; background:#8abd32;}
+.below-navleft tr td a.active{ text-decoration:none; color:#ffffff; background:#8abd32;}
+
+.below-navright{ width:290px; float:left; display:block; padding:0 18px 0 0; margin:0; color:#FFFFFF; line-height:20px;}
+h1{ color:#0a0a0a; padding:14px 0 10px 0; margin:0; font-size:20px; font-weight:normal;}
+h2{ color:#7e7e7e; padding:10px 0; margin:0; font-size:18px; font-weight:normal;}
+h3{ color:#7e7e7e; padding:10px 0; margin:0; font-size:14px; font-weight:normal;}
+.content-area{ width:999px; padding:0 4px 0 0; margin:0 auto;}
+.content-area-for-dispatcher-board{ width:90%; padding:0 4px 0 0; margin-left:20px;}
+.head-bg{ background:url(../images/head-bg.gif) left top repeat-x; height:23px; border-right:1px solid #5d8cc9; color:#0a0a0a; font-weight:bold;}
+.head-bg1{ background:url(../images/head-bg.gif) left top repeat-x; height:23px; color:#0a0a0a; font-weight:bold;}
+.head-bg2{ background:url(../images/head-bg.gif) left top repeat-x; height:23px; color:#0a0a0a; font-weight:bold; }
+.sky-bg{ background:#e3efff; border-left:1px solid #5d8cc9;}
+.lft-bg{ border-left:1px solid #5d8cc9; border-bottom:1px solid #cddfef; border-right:0px solid #5d8cc9; padding:0;}
+.lft-bg2{ border-left:0px solid #5d8cc9; border-bottom:1px solid #cddfef; border-right:1px solid #5d8cc9; padding:0 5px 0 5px;}
+
+.sky-bg2{ background:url(../images/sky-line.gif) center bottom no-repeat #e3efff; border-right:1px solid #5d8cc9; height:20px;}
+.normal-td{ border-bottom:1px solid #cddfef; border-right:1px solid #5d8cc9; padding:0 0 0 9px;}
+
+.normal-td2{ border-bottom:1px solid #cddfef; border-right:0px solid #5d8cc9; padding:0 0 0 9px;}
+.normaltd{ border-bottom:1px solid #cddfef; border-right:1px solid #5d8cc9; padding:0 9px;}
+.normaltd2{ border-bottom:1px solid #cddfef; border-right:0px solid #5d8cc9; padding:0 9px;}
+.normal-td3{ border-bottom:1px solid #cddfef; border-right:1px solid #5d8cc9; padding:0;}
+.head-cn{ background:url(../images/head-bg.gif) left top repeat-x; height:23px; border-right:0px solid #5d8cc9; color:#0a0a0a; font-weight:bold; padding:0 0 0 9px;}
+.normal-tdr{ border-bottom:1px solid #cddfef; border-right:0px solid #5d8cc9; padding:0 0 0 9px;}
+.footer-bg{ background:url(../images/footer-bg.gif) left top repeat-x; height:23px; color:#0a0a0a; 
+border-bottom:1px solid #5d8cc9; }
+.content-area tbody{ width:100%;}
+/*-------------------*/
+
+
+.content-area table.data-table tr:hover { background-color:#FFFFFF; background:#FFFFFF; cursor:pointer;}
+.content-area table.data-table tr.active { background-color:#FFFFFF; background:#FFFFFF; cursor:pointer;}
+
+.login-bg { width:396px; background:url(../images/loginbg.gif) no-repeat; height:211px; margin:90px auto 0 auto;}
+.login-title { width:320px; color:#0a0a0a; background:url(../images/login-icon.gif) no-repeat 12px 12px; padding:18px 0 10px 45px; margin:0px ; font-size:20px; font-weight:normal; border:0px solid blue;}
+.changepass-title { width:320px; color:#0a0a0a; background:url(../images/chpass-icon.gif) no-repeat 10px 9px; padding:18px 0 10px 41px; margin:0px ; font-size:20px; font-weight:normal; border:0px solid blue;}
+
+
+.login-bg form{ padding:0; margin:0;}
+.login-bg form fieldset{ padding:0; margin:35px 0 0 49px; border:0;}
+.login-bg form fieldset legend{ padding:0; margin:0; border:0;}
+.login-bg form fieldset label{ float:left; text-align:left; width:115px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.login-bg form fieldset label.fpass{ float:left; text-align:left; width:138px; padding:0 ; font-size:11px; font-weight:normal; color:#000000;}
+.login-bg form fieldset label.fpass a{ text-decoration:underline;}
+.login-bg form fieldset label.fpass a:hover{ text-decoration:none;}
+.login-bg form fieldset label.user{ float:left; text-align:left; width:76px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.login-bg form fieldset label.fpass input.check { width:15px; height:15px; padding:0; margin:0 5px 0 0; border:0;}
+.login-bg form fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.login-bg form fieldset label.ch-pass{ float:left; text-align:left; width:221px; padding:0 ; font-size:11px; font-weight:normal; color:#000000;}
+.login-bg form fieldset input.loginbttn{ float:left; display:block; background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; width:56px !important; line-height:13px; font-size:11px; font-weight:bold; text-align:center; padding:0 0 3px 0;  margin:0 ; cursor:pointer; color:#4c4c4c;}
+.login-bg form fieldset input.okbttn{ float:left; display:block; background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; width:36px; height:20px; font-size:11px; font-weight:bold; text-align:center; padding:0 0 3px 0;  margin:0 0 0 5px ; cursor:pointer;}
+
+
+.search-rt { padding:0; margin:0 0 8px 0; width:100%; clear:both; height:0; line-height:0; border-bottom:1px solid #e6e6e6;}
+
+
+.white-mid form div.form-con fieldset label.normal{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+.white-mid form div.form-con fieldset label.sm{ float:left; text-align:right; width:29px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+.white-mid form div.form-con fieldset label.link-holder{ float:left; text-align:left; width:185px; padding:3px 0; margin:0; font-size:11px; font-weight:normal; color:#000000; border:0px solid blue;}
+.white-mid form div.form-con fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset input.mtextbox{ float:left; width:136px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 5px 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset input.sh-box{ float:left; width:69px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 5px 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset input.smbox{ float:left; width:41px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0px; font-size:11px;}
+
+
+.white-mid form div.form-con fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset label.field-text{ float:left; width:188px; height:18px; font-weight:normal; text-align:left; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset label.field-textarea{ float:left; width:188px; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; font-weight:normal; text-align:left; font-family:Arial, Helvetica, sans-serif;overflow:auto; overflow-x: auto;}
+.inner-mid {width:852px; padding:0; margin:0;}
+
+
+.td-txt { padding:0 3px; }
+.gray-bg { border-bottom:1px solid #e6e6e6; font-weight:bold; vertical-align:middle; }
+.gray-bg a{ color:#000000; font-weight:bold; text-decoration:none; }
+.gray-bg a:hover{ color:#4322cc; text-decoration:underline; }
+.gray-bg a.active{ color:#4322cc; text-decoration:none; }
+.gray-border { border:1px solid #e6e6e6; border-bottom:0px solid #e6e6e6;}
+.rtgray-bg { border-bottom:1px solid #e6e6e6; border-left:1px solid #e6e6e6; font-size:12px; color:#7e7e7e; font-weight:bold; vertical-align:middle; }
+
+.textbox{ width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0; font-size:11px;}
+.search-button{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; width:56px; height:20px; font-size:11px; font-weight:bold; text-align:center; padding:0 0 3px 0;  margin:0 ; cursor:pointer;}
+.link { font-size:11px; font-weight:bold; color:#4322cc; margin:0 5px 0 0; text-decoration:underline;}
+.link:hover { font-size:11px; font-weight:bold; color:#4322cc; margin:0 5px 0 0; text-decoration:none;}
+
+.right { float:right !important; display:block; width:405px;}
+.right input[type="button"]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#000; width:125px !important; cursor:pointer;}
+.white-mid-load{ width:852px; padding:0; margin:0;}
+.white-mid form div.form-con fieldset label.ch-box{ float:left; text-align:left; width:150px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid form div.form-con fieldset label.ch-box input.check{ float:left; text-align:left; width:15px; padding:0 0px 0 0; height:15px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid form div.form-con fieldset textarea.nbig{ float:left; width:280px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 56px; font-size:11px; font-family:Arial, Helvetica, sans-serif;}
+.white-mid form div.form-con fieldset input.normal-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0 5px 8px 0; cursor:pointer;}
+.white-mid form div.form-con fieldset input.inac-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; color:#bebaba; font-weight:bold; line-height:20px; text-align:center; margin:0 5px 8px 0; cursor:hand;}
+/*
+.white-mid form div.form-con fieldset label.custlabel{ float:left; text-align:center; width:120px; padding:0 0px 0 0; margin:15px 0 8px 0; font-size:14px; font-weight:normal; color:#7e7e7e;}
+*/
+.white-mid form div.form-con fieldset label.custlabel{ float:left; text-align:center; width:120px; padding:0 0px 0 0; margin:15px 0 8px 0; font-size:13px; font-weight:bold; color:#7e7e7e;}
+
+
+.white-mid form div.form-con fieldset input.mid-textbox{ float:left; width:110px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 10px 8px 0; font-size:11px;}
+.right-link { float:right; padding:0 0 15px 0;}
+.gap { clear:both; height:15px; padding:0; margin:0;}
+.carrier-mid{ width:820px; margin:0 auto; padding:0;}
+.carrier-gap { width:850px; clear:both; background:#ffffff; height:9px; padding:0; margin:0;}
+
+.t-textbox{ width:180px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:2px 0; font-size:11px;}
+.td-textbox{ width:120px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:2px 0; font-size:11px;}
+.q-textbox{ width:70px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:2px 0; font-size:11px;}
+
+.wt-textbox{ width:52px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:2px 0; font-size:11px;}
+.t-select{ width:90px; height:22px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 0 0 0; margin:2px 0; font-size:11px;}
+/*.content-area table.noh tr:hover { background:#ffffff; cursor:hand;}
+.noh:hover { cursor:hand;}*/
+.carrier-links { width:800px; background:#ffffff; padding:9px 0 6px 0; margin:0 auto;}
+.carrier-links ul { list-style-type:none; padding:0; margin:0;}
+.carrier-links ul li{ display:inline; padding:0 2px; margin:0;}
+.carrier-links ul li a{font-size:11px; font-weight:bold; color:#4322cc; margin:0; text-decoration:underline;}
+.carrier-links ul li a:hover{text-decoration:none;}
+.carrier-links ul li a.active{text-decoration:underline;}
+
+.msg-area { border:1px solid #a4da46; width:794px; background:#e8efd9; padding:5px 15px; font-weight:normal; margin:0 auto; }
+.errormsg-area { border:1px solid #e42b37; width:794px; background:#facccf; padding:5px 15px; font-weight:normal; color:#ba141f; margin:0 auto; }
+.white-mid form div.form-con fieldset label.big-text{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:14px; font-weight:bold; color:#bfbfbf;}
+
+.form-heading{ width:830px; background:#ffffff; padding:0 10px; margin:0 auto;}
+.pg-title{ float:left; display:block; width:145px; padding:5px 0; margin:0;}
+.pg-title h2{ color:#7e7e7e; padding:0; margin:0; font-size:18px; font-weight:normal;}
+.st-link{ float:left; display:block; width:300px; padding:0; margin:0;}
+.st-link ul li{ display:inline; padding:0px 10px; font-weight:bold; line-height:30px; margin:0;}
+.st-link ul li a{ color:#4322cc; text-decoration:none;}
+.st-link ul li a:hover{ color:#4322cc; text-decoration:underline;}
+.st-link ul li a.active{ color:#4322cc; text-decoration:none;}
+.rt-button{ float:right; display:block; padding:0; margin:0;}
+
+.rt-button .green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:2px; color:#599700; width:125px !important; cursor:pointer;}
+
+.rt-button .red-btn {  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:4px color:#ba0000; width:125px !important; cursor:pointer;}
+
+.rt-button1{ float:right; display:block; padding:0; margin:0;}
+
+.rt-button1 .green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:2px; color:#599700; width:125px !important; cursor:pointer;}
+
+.rt-button1 .red-btn {  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:4px color:#ba0000; width:125px !important; cursor:pointer;}
+
+.rt-button2{ float:right; display:block; padding:0; margin:0;}
+
+.rt-button2 .green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:2px; color:#599700; width:125px !important; cursor:pointer;}
+
+.rt-button2 .red-btn {  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:4px color:#ba0000; width:125px !important; cursor:pointer;}
+
+.rt-button3{ float:right; display:block; padding:0; margin:0;}
+
+.rt-button3 .green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:2px; color:#599700; width:125px !important; cursor:pointer;}
+
+.rt-button3 .red-btn {  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:1px; margin-top:4px color:#ba0000; width:125px !important; cursor:pointer;}
+
+.white-mid form div.rt-button input.bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0 2px 0 0 ; cursor:pointer;}
+.white-mid form div.form-con fieldset input.sm-input{ float:left; width:54px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset label.sm-lbl{ float:left; text-align:right; width:68px; padding:0 5px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid form div.form-con fieldset input.pick-input{ float:left; width:50px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+
+/*--------edit load------------*/
+.white-mid div.form-con { float:left; display:block; width:406px; padding:6px 10px 0 10px; margin:0; border:0;}
+.white-mid div.form-con fieldset{ padding:0; margin:0; border:0;}
+.white-mid div.form-con fieldset legend{ padding:0; margin:0; border:0;}
+.white-mid div.form-con fieldset label{ float:left; text-align:right; width:102px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset label.space_load{ float:left; text-align:right; width:44px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset label.space_it{ float:left; text-align:right; width:75px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset label.space_it_medium{ float:left; text-align:left; width:92px; padding:0 0px 0 7px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset label.space_it_little{ float:left; text-align:right; width:38px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset textarea{ float:left; width:188px; height:100px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; font-family:Arial, Helvetica, sans-serif;}
+.white-mid div.form-con fieldset textarea.medium-textbox{ float:left; width:186px; height:40px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 10px 0px 0; font-size:11px;}
+.white-mid div.form-con fieldset textarea.big{ float:left; width:305px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 30px; font-size:11px; font-family:Arial, Helvetica, sans-serif;}
+
+.form-search fieldset.career_filter{ border:1px solid #B3B3B3;}
+.form-search fieldset.career_filter span.carrier_type{ padding:0 0px; margin:2px 4px 2px 4px; border:1px solid #b3b3b3;width:146px !important;border-radius: 4px;}
+.form-search fieldset.career_filter legend{ padding:0 6px; margin:0 0 0 16px; border:0;}
+.form-search fieldset.career_filter label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.form-search fieldset.career_filter input{ float:none; background:none !important; border:0px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 0px 0; font-size:11px; margin-right:4px !important;width:28px;}
+.form-search fieldset.career_filter input[type=text]{ float:none; background:#fff !important; border:0px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 0px 0; font-size:11px; margin-right:4px !important;width:28px;}
+.form-search fieldset.career_filter select{ float:right; width:104px; height:21px; border:1px solid #b3b3b3; padding:0; margin:0 0 4px 0; font-size:11px;}
+.form-search fieldset.career_filter span{ width:72px; float:left; }
+.form-search fieldset.career_filter span.int{ width:85px; float:left;}
+.form-search fieldset.career_filter span.equipment{ width:166px;}
+.form-search fieldset.career_filter span p{ float:left;padding:2px 0px 0px 0px;}
+.form-search fieldset.career_filter div.carrier_bottom_area_left{ float:left;width:222px;}
+.form-search fieldset.career_filter div.carrier_bottom_area_right{ float:left;width:222px;}
+
+
+.form-search .carrier_bottom_area fieldset.career_subfilter{ border-top:1px solid #B3B3B3;}
+.form-search .carrier_bottom_area fieldset.career_subfilter div.career_subfilter_area{ border-right:1px solid #B3B3B3;margin:-4px 0 0 0;}
+.form-search .carrier_bottom_area fieldset.career_subfilter legend{ padding:0 6px; margin:0 0 0 16px; border:0;}
+.form-search .carrier_bottom_area fieldset.career_subfilter label{ float:left; text-align:right; width:38px; padding:0 4px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.form-search .carrier_bottom_area fieldset.career_subfilter label.zip{ float:left; text-align:right; width:20px; padding:0 4px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.form-search .carrier_bottom_area fieldset.career_subfilter input{ float:left; background:#FFFFFF; border:0px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 6px 8px; font-size:11px; margin-right:4px !important;width:140px;}
+.form-search .carrier_bottom_area fieldset.career_subfilter input.zip{ float:left; background:#FFFFFF; border:0px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 6px 8px; font-size:11px; margin-right:4px !important;width:60px;}
+.form-search .carrier_bottom_area fieldset.career_subfilter select{ float:left; width:48px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 4px 8px; font-size:11px;}
+.form-search .carrier_bottom_area fieldset.career_subfilter span{ width:72px; float:left; }
+.form-search .carrier_bottom_area fieldset.career_subfilter span.int{ width:85px; float:left;}
+.form-search .carrier_bottom_area fieldset.career_subfilter span.equipment{ width:200px;}
+.form-search .carrier_bottom_area fieldset.career_subfilter span p{ float:left;}
+.form-search .carrier_bottom_area fieldset.career_subfilter div.carrier_bottom_area_left{ float:left;width:210px;}
+.form-search .carrier_bottom_area fieldset.career_subfilter div.carrier_bottom_area_right{ float:left;width:210px;}
+.highpadd{padding:10px 0 6px 0 !important;}
+/*Mine changings*/
+
+/*End Mine changings*/
+
+.white-mid div.rt-button input.bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:12px; font-weight:bold; line-height:20px; text-align:center; margin:2px 1px; color:#4c4c4c; width:125px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input.sm-input{ float:left; width:60px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid div.form-con fieldset label.sm-lbl{ float:left; text-align:right; width:68px; padding:0 5px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset input.pick-input{ float:left; width:50px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+
+/*.white-mid div.form-con fieldset input{ float:left; width:188px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 2px 0; font-size:11px; margin-right:8px !important;}*/
+
+.white-mid div.form-con fieldset input{ float:left; width:188px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; margin-right:8px !important;}
+
+.white-mid div.form-con fieldset input.small_chk{ float:right; width:14px; border:0px solid #b3b3b3; padding:0px 0px 0 0px; margin:0 0 2px 0; font-size:11px; margin-right:8px !important;}
+
+.white-mid div.form-con fieldset input[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset input[type=submit]{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset input#refreshBtn[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn2[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn3[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn4[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn5[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn6[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn7[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn8[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn9[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn10[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset input#refreshBtn11[type=button]{  background:url(../images/button-bg.gif) left top repeat-x; border:none; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#4c4c4c; width:20px !important; cursor:pointer;}
+.white-mid div.form-con fieldset label.cellnum-text{ float:left; width:100px; height:18px; font-weight:normal; text-align:left; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid div.form-con fieldset label.field-text{ float:left; width:188px; height:18px; font-weight:normal; text-align:left; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.white-mid div.form-con fieldset label.field-textarea{ float:left; width:260px; height:100px; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; font-weight:normal; text-align:left; font-family:Arial, Helvetica, sans-serif;overflow:auto; overflow-x: auto;}
+.white-mid div.form-con fieldset div.select-area{ float:left; width:188px; background:#f8f8f8; border:1px solid #b3b3b3; padding:0; margin:0 0 8px 0; font-size:11px; font-weight:normal; text-align:left; font-family:Arial, Helvetica, sans-serif;}
+.white-mid div.form-con fieldset div.select-area div.aselect{ float:left; width:188px; background:#4322cc; padding:0 0 2px 0; margin:0; height:17px; border-bottom:1px solid #cfcdcd; }
+
+.white-mid div.form-con fieldset div.select-area div.aselect div.sname{ float:left; width:90px; padding:2px 1px 0 1px; margin:0; height:17px;line-height:17px; font-size:11px; font-weight:normal; text-align:left; }
+.white-mid div.form-con fieldset div.select-area div.aselect div.sstate{ float:left; width:72px; padding:2px 1px 0 1px; margin:0; height:17px;line-height:17px; font-size:11px; font-weight:normal; text-align:left;}
+
+.white-mid div.form-con fieldset div.select-area div.aselect div.scountry{ float:left; width:16px; padding:2px 1px 0 1px; margin:0;height:17px; line-height:17px; }
+.white-mid div.form-con fieldset div.select-area div.dselect{ float:left; width:188px; background:#f8f8f8; padding:0 0 2px 0; margin:0; height:17px; border-bottom:1px solid #cfcdcd; }
+.white-mid div.form-con fieldset div.select-area div.dselect div.sname{ float:left; width:90px; padding:2px 1px 0 1px; margin:0; height:17px;line-height:17px; font-size:11px; font-weight:normal; text-align:left; }
+.white-mid div.form-con fieldset div.select-area div.dselect div.sstate{ float:left; width:72px; padding:2px 1px 0 1px; margin:0; height:17px;line-height:17px; font-size:11px; font-weight:normal; text-align:left;}
+
+.white-mid div.form-con fieldset div.select-area div.dselect div.scountry{ float:left; width:16px; padding:2px 1px 0 1px; font-weight:normal; margin:0;height:17px; line-height:17px; }
+
+.white-mid div.form-con fieldset select{ float:left; width:194px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 4px 0; font-size:11px;}
+.white-mid div.form-con fieldset select.small{ float:left; width:47px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 8px 0; font-size:11px;}
+.white-mid div.form-con fieldset select.medium{ float:left; width:111px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 4px 0; font-size:11px;}
+.white-middiv.form-con fieldset label.per{ float:left; text-align:left; width:35px; padding:0 0px 0 5px; font-size:11px; font-weight:bold; color:#000000;}
+
+.white-mid div.form-con fieldset input.blue-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#273d50; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset input.green-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#599700; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset input.red-btn{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#ba0000; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset .red-btn input[type="button"]{  background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:2px; color:#ba0000; width:125px !important; cursor:pointer;}
+
+.white-mid div.form-con fieldset label.ch-box{ float:left; text-align:left; border:0px; width:150px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset label.ch-box input.check{ float:left; border:0px; text-align:left; width:15px; padding:0 0px 0 0; height:15px; font-size:11px; font-weight:bold; color:#000000;}
+
+.white-mid div.form-con fieldset label.big-text{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:14px; font-weight:bold; color:#bfbfbf;}
+.white-mid div.form-con fieldset input.carrier-box{ float:left; width:279px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 58px; font-size:11px;}
+.white-mid div.form-con fieldset textarea.carrier-textarea{ float:left; width:279px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 58px; font-size:11px;}
+.white-mid div.form-con fieldset textarea.carrier-textarea-big{ float:left; width:394px; height:121px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 6px; font-size:11px;}
+.white-mid div.form-con fieldset textarea.carrier-textarea-medium{ float:left; width:394px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 6px; font-size:11px;}
+/*
+.white-mid div.form-con fieldset label.custlabel{ float:left; text-align:right; width:63px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:14px; font-weight:normal; color:#000; border:0px solid blue;}
+
+.white-mid div.form-con fieldset label.custlabel1{ float:left; text-align:right; width:95px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:14px; font-weight:normal; color:#000; border:0px solid blue;}
+
+.white-mid div.form-con fieldset label.custlabel2{ float:left; text-align:right; width:82px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:14px; font-weight:normal; color:#000; border:0px solid blue;}
+*/
+.white-mid div.form-con fieldset label.custlabel{ float:left; text-align:right; width:63px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:13px; font-weight:bold; color:#000; border:0px solid blue;}
+
+.white-mid div.form-con fieldset label.custlabel1{ float:left; text-align:right; width:95px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:13px; font-weight:bold; color:#000; border:0px solid blue;}
+
+.white-mid div.form-con fieldset label.custlabel2{ float:left; text-align:right; width:82px; padding:0 0px 0 0; margin:15px 0 2px 0; font-size:13px; font-weight:bold; color:#000; border:0px solid blue;}
+
+.white-mid div.form-con fieldset input.mid-textbox{ float:left; width:60px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; 
+/*padding:2px 2px 0 2px; margin:0 10px 8px 0; */
+font-size:11px;}
+.white-mid div.form-con fieldset input.mid-textbox-1{ float:left; width:60px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; 
+/*padding:2px 2px 0 2px;*/ margin:0 0px 2px 0;font-size:11px;color:#000;}
+.white-mid div.form-con fieldset div.search-rt { padding:0; margin:0 0 8px 0; width:100%; clear:both; height:0; line-height:0; border-bottom:1px solid #e6e6e6;}
+.white-mid div.form-con h2{ color:#7e7e7e; padding:0px 0 10px 10px; margin:0; font-size:18px; font-weight:normal;}
+.white-mid div.form-con fieldset input.normal-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0 5px 8px 0; cursor:pointer;}
+.white-mid div.form-con fieldset input.inac-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; color:#bebaba; font-weight:bold; line-height:20px; text-align:center; margin:0 5px 8px 0; cursor:hand;}
+/*--------edit load------------*/
+
+
+
+.carrier-link { float:right; display:block;padding:0; margin:0;}
+.carrier-link ul li{ display:inline; padding:0px 5px; font-weight:bold; line-height:18px; margin:0;}
+.carrier-link ul li a{ color:#4322cc; text-decoration:none;}
+.carrier-link ul li a:hover{ color:#4322cc; text-decoration:underline;}
+.carrier-link ul li a.active{ color:#4322cc; text-decoration:none;}
+.rt-button{ float:right; display:block; padding:0; margin:0;}
+.white-mid form div.form-con fieldset label.big-label{ float:left; display:block; text-align:left; width:279px; padding:0 10px 0 0; margin:0 0px 0px 58px; font-size:11px; font-weight:bold; color:#000000; border:0px solid blue;}
+.white-mid form div.form-con fieldset label.big-label a{ margin:0 0 15px 0; color:#4322cc; text-decoration:none;}
+.white-mid form div.form-con fieldset label.big-label a:hover{ color:#000000; text-decoration:none;}
+.white-mid form div.form-con fieldset label.big-label a.active{ color:#4322cc; text-decoration:underline;}
+.rt-button{ float:right; display:block; padding:0; margin:0; width: 393px;}
+
+.rt-button1{ float:right; display:block; padding:0; margin:0; width: 260px;}
+
+.rt-button2{ float:right; display:block; padding:0; margin:0; width: 133px;}
+
+.rt-button3{ float:right; display:block; padding:0; margin:0; width: 263px;}
+
+.white-mid form div.form-con fieldset input.carrier-box{ float:left; width:279px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 58px; font-size:11px;}
+.white-mid form div.form-con fieldset textarea.carrier-textarea{ float:left; width:279px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 58px; font-size:11px;}
+.white-mid div.form-con fieldset select.carrier-select{ float:left; width:279px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 58px; font-size:11px;}
+
+
+
+
+
+.white-midconf{ width:820px; background:#ffffff; padding:0 15px; margin:0; border-left:1px solid #d9dee2; border-right:1px solid #d9dee2;}
+.white-midconf h1 {color:#0a0a0a; padding:14px 0 10px 0; margin:0 0 15px 0;  background:#ffffff; font-size:20px; font-weight:normal; text-align:center; border-bottom:1px solid #bfbfbf;}
+
+.white-midconf div.form-confirmation{ float:left; padding:10px 10px 0 10px;}
+.white-midconf div.form-confirmation label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+.white-midconf div.form-confirmation label.msg{ float:left; text-align:left; width:70px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+.white-midconf div.form-confirmation label.name{ float:left; text-align:left; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+
+.white-midconf-data{ width:820px; background:#ffffff; padding:0 15px; margin:0; border-left:1px solid #d9dee2; border-right:1px solid #d9dee2;}
+/*.white-midconf-data{ width:822px; background:url(../images/white-bg.gif) left top repeat-y#ffffff; padding:0 15px; margin:0;border-left:1px solid #d9dee2; border-right:1px solid #d9dee2;}*/
+
+.white-midconf-data div.form-confirmation{ float:left; width:406px; padding:10px 0px 0 0px;}
+.white-midconf-data div.form-confirmation label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-midconf-data div.form-confirmation label.msg{ float:left; text-align:left; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:normal; color:#000000;}
+.confirmation-gap { width:850px; clear:both; background:#ffffff; height:9px; padding:0; margin:0; border-left:1px solid #d9dee2; border-right:1px solid #d9dee2;}
+
+
+.up-down{ width:5px; height:22px; float:left; display:block; padding:0 9px 0 0}
+.arrow-top{ width:5px; height:3px; padding:8px 0 0 0;}
+.arrow-bot{ width:5px; height:3px; padding:2px 0 0 0;}
+.gen-left{ width:auto; float:left; display:block; padding:3px 0 0 0;}
+.gen-right{ width:auto; float:right; display:block; padding:2px 6px 0 7px; margin:3px 0 0 0; border-left:1px solid #a6c8f5;}
+.white-con-area{ width:852px;}
+.white-top{ width:852px; height:8px; background:url(../images/white-top.gif) left top no-repeat;}
+.white-bot{ width:852px; height:8px; background:url(../images/white-bot.gif) left top no-repeat;}
+.white-mid{ width:852px; background:url(../images/white-bg.gif) left top repeat-y;}
+.white-mid form{ padding:0; margin:0;}
+.white-mid form div.form-con{ width:406px; float:left; padding:10px 10px 0 10px;}
+
+.white-mid form div.form-con fieldset{ padding:0; margin:0; border:0;}
+.white-mid form duv.form-con fieldset legend{ padding:0; margin:0; border:0;}
+.white-mid form div.form-con fielFdset label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+
+.white-mid form div.form-con fieldset textarea{ float:left; width:188px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; font-family:Arial, Helvetica, sans-serif;}
+
+.white-mid form div.form-con fieldset textarea.big{ float:left; width:305px; height:70px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 30px; font-size:11px; font-family:Arial, Helvetica, sans-serif;}
+
+
+.white-mid form div.form-con fieldset select{ float:left; width:194px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset select.small{ float:left; width:47px; height:21px; background:#FFFFFF; border:1px solid #b3b3b3; padding:0; margin:0 0 8px 0; font-size:11px;}
+.white-mid form div.form-con fieldset label.per{ float:left; text-align:left; width:35px; padding:0 0px 0 5px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid form div.form-con fieldset input.bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0 10px 8px 0; cursor:pointer;}
+.addbutton { float:right; display:block; background:url(../images/addnew.gif) no-repeat 5px 9px; padding:10px 0 0 21px; }
+.addbutton a{ color:#4322cc; font-weight:bold; text-decoration:none; }
+.addbutton a:hover{font-weight:bold; text-decoration:underline; }
+
+.exportbutton { float:right; display:block; background:url(../images/exportIcon.jpg) no-repeat 5px 9px; padding:10px 0 0 28px; }
+.exportbutton a{ color:#4322cc; font-weight:bold; text-decoration:none; }
+.exportbutton a:hover{font-weight:bold; text-decoration:underline; }
+
+.busyButton { float:right; display:block; background:url(../images/working.gif) no-repeat 5px 9px; padding:10px 0 0 28px; }
+
+/* Delete Button*/
+
+/*------------New Css--------------------*/
+.form-con ul.load-link {list-style-type:none; padding:0; margin:0;}
+.form-con ul.load-link li{ float:left; display:block; padding:0 7px 0 0 ; margin:0; font-weight:bold; text-transform:uppercase;}
+.form-con ul.load-link li a{ color:#4322cc; text-decoration:underline;}
+.form-con ul.load-link li a:hover{text-decoration:none;}
+.white-midconf h2.cconf {color:#7e7e7e; padding:0 0 10px 0; margin:0; font-size:18px; text-transform:uppercase; font-weight:normal; text-align:center; border-bottom:1px solid #bfbfbf;}
+.ccdatatable { border-top:2px solid #5d8cc9; border-bottom:2px solid #5d8cc9; }
+.cctable { text-transform:uppercase; padding:0 0 0 7px;}
+
+/*------------New Css--------------------*/
+
+
+
+
+.content-heading h1{ color:#0a0a0a; padding:14px 0 10px 0; margin:0; font-size:20px; font-weight:normal;}
+.white-midconf h1 {color:#0a0a0a; padding:14px 0 10px 0; margin:0 0 15px 0;  background:#ffffff; font-size:20px; font-weight:normal; text-align:left; border-bottom:1px solid #bfbfbf;}
+.white-midconf h2 {color:#7e7e7e; padding:0 0 10px 0; margin:0; font-size:18px; font-weight:normal; text-align:center; border-bottom:1px solid #bfbfbf;}
+
+
+.delbutton { float:right; display:block; background:url(../images/delete-icon.gif) no-repeat 5px 9px; padding:10px 0 0 21px; }
+.delbutton a{ color:#000000; font-weight:bold; text-decoration:none; }
+.delbutton a:hover{font-weight:bold; text-decoration:underline; }
+
+.search-panel { width:850px; padding:0; margin:0;}
+.form-search{ width:750px; float:left; padding:10px 0px 0 0px;}
+.form-search-big{ width:850px !important; float:left;}
+.form-search form{ padding:0; margin:0; border:0;}
+.form-search form fieldset{ padding:0; margin:0; border:0;}
+.form-search form fieldset legend{ padding:0; margin:0; border:0;}
+.form-search form fieldset label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.form-search form fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;}
+.form-search form fieldset input.s-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:22px; font-size:11px; font-weight:bold; line-height:15px; text-align:center; margin:0 0 0px 5px; cursor:pointer; color:#4c4c4c;}
+
+.form-search form fieldset input.r-bttn{ float:right; display:block; background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0 0 0px 5px; cursor:pointer;} {float:right; display:block;}
+
+.white-mid div.form-con fieldset label.big-label{ float:left; display:block; text-align:left; width:279px; padding:0 10px 0 0; margin:0 0px 0px 58px; font-size:11px; font-weight:bold; color:#000000; border:0px solid blue;}
+.white-mid div.form-con fieldset label.big-label a{ margin:0 0 15px 0; color:#4322cc; text-decoration:none;}
+.white-mid div.form-con fieldset label.big-label a:hover{ color:#000000; text-decoration:none;}
+.white-mid div.form-con fieldset label.big-label a.active{ color:#4322cc; text-decoration:underline;}
+
+
+.white-mid div.form-con fieldset input.emailbox{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;color:#4322cc; text-decoration:underline;}
+.white-mid div.form-con fieldset input.emailbox:hover{ float:left; width:188px; height:18px; color:#4322cc; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; text-decoration:none; cursor:pointer;}
+
+.white-mid div.form-con fieldset label.emailbox{ float:left; width:188px; height:18px; font-weight:normal; text-align:left; background:#f8f8f8; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px; color:#4322cc; text-decoration:underline;}
+.white-mid div.form-con fieldset label.emailbox:hover{ float:left; width:188px; height:18px; font-weight:normal; text-align:left; background:#f8f8f8; color:#4322cc; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 0 8px 0; font-size:11px;text-decoration:none; cursor:pointer;}
+.white-mid form div.form-con fieldset label.ex{float:left; display:block; text-align:right; width:49px; padding:0 10px 0 10px; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid div.form-con fieldset input.carr-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center; margin:0px 5px 8px 15px; cursor:pointer;}
+.white-mid div.form-con fieldset input.normal-bttn1{ background:url(../images/button-bg.gif) left top repeat-x; width:250px; padding:0 5px; background:#ccc; font-size:11px; font-weight:bold; height:22px; overflow:display; cursor:pointer; border:1px solid #b3b3b3; padding:0 10px 0 10px;}
+
+.msg-carr{padding:5px 15px; font-weight:normal; margin:0 auto; }
+
+.white-mid-carrier{ width:852px; background:url(../images/white-bgc.gif) left top repeat-y;}
+.white-mid-carrier form{ padding:0; margin:0;}
+.white-mid-carrier form div.form-con{ width:506px; float:left; padding:10px 10px 0 10px;}
+
+.white-mid-carrier form div.form-con fieldset{ padding:0; margin:0; border:0;}
+.white-mid-carrier form duv.form-con fieldset legend{ padding:0; margin:0; border:0;}
+.white-mid-carrier form div.form-con fieldset label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid-carrier form div.form-con fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 6px 8px 0; font-size:11px;}
+.white-mid-carrier form div.form-con fieldset input.normal-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; width:78px; padding:0px 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center;
+ margin:0 0 0 40px; cursor:pointer;}
+ 
+.padd_left{margin:0 0 0 6px;}
+.margin_top{margin:7px 0 0 0;}
+/*.load_opt{float:left;} */
+.white-mid-carrier div.form-con{ width:506px; float:left; padding:10px 10px 0 10px;}
+.white-mid-carrier div.form-con fieldset{ padding:0; margin:0; border:0;}
+.white-mid-carrier duv.form-con fieldset legend{ padding:0; margin:0; border:0;}
+.white-mid-carrier div.form-con fieldset label{ float:left; text-align:right; width:138px; padding:0 10px 0 0; font-size:11px; font-weight:bold; color:#000000;}
+.white-mid-carrier div.form-con fieldset input{ float:left; width:188px; height:18px; background:#FFFFFF; border:1px solid #b3b3b3; padding:2px 2px 0 2px; margin:0 6px 8px 0; font-size:11px;}
+.white-mid-carrier div.form-con fieldset input.normal-bttn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; width:78px; padding:0 10px 0 10px; height:20px; font-size:11px; font-weight:bold; line-height:20px; text-align:center;
+ margin:0; cursor:pointer;}
+
+.pg-title-carrier{ float:left; display:block; width:145px; padding:0 2px; margin:0;}
+.form-heading-carrier{ width:830px; float:left; padding:0 6px;}
+.white-mid div.form-con.label{font-size:5px;}
+.left_billdate_area{float:left;width:185px;height:140px;}
+.right_billdate_area{float:left;width:214px;}
+input[type="button"].topbtn{ background:url(../images/button-bg.gif) left top repeat-x; border:1px solid #b3b3b3; padding:0 10px; height:30px; font-size:12px; font-weight:bold; line-height:30px; text-align:center; margin:2px; margin-top:4px; color:#4c4c4c; width:125px !important; cursor:pointer; }
+
+/*.data-table{ font:normal 11px/16px Arial, Helvetica, sans-serif !important; }
+ .radio-p{background:red; padding:0px; margin:7px 0px 0px;}
+ .radio-p input{ padding:0px !important; margin:0px 0px 5px!important; }*/
+ 
+ .data-table{ font:normal 11px/16px Arial, Helvetica, sans-serif !important; float:left; }
+ .radio-p{ padding:0px ; margin:0px; float:left !important; width:66px; height:13px; }
+ .radio-p input{ padding:0px !important; margin:0px; border:none !important; line-height:12px !important ; height:12px !important ;}
+ input.hint {color:#808080;}
+ .white-mid div.form-con fieldset input.carrier-filter-image-button[type=submit]{ background: #fff url('../images/auto_suggest.gif') no-repeat top left;padding-left: 20px;height: 20px;width:20px !important; border:0px solid #fff !important;}
+.AutomaticNotesStamp{border-top:1px solid #E6E6E6;margin-top:10px;width:350px;}
+.input_width{width:20px !important;}
+.automatic_notes_heading{font-size:14px;color:##000000;clear:both;font-weight:bold;padding:5px 0 5px 0;}
+.notes_msg {padding-left:5px;}
+.float_left {float:left;}
+.float_right{float:right;}
+
+
+.bop_report{width:1100px; float:left;}
+.bop_form{width:365px; padding:10px 0px; float:left;}
+.bop_form form, fieldset{padding:0; margin:0; border:none;}
+.bop_form label{color: #000000; float: left; font-size: 11px; font-weight: bold; padding: 0 10px 0 0; text-align: right; width:138px;}
+.bop_form input{background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #B3B3B3; float: left; font-size: 11px; margin-bottom:10px; margin-left: 0;}
+.bop_form select{background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #B3B3B3; float: left; font-size: 11px; height: 21px; margin: 0 0 10px; padding: 0; width: 194px;}
+
+.bop_form textarea{background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #B3B3B3; float: left; font-family: Arial,Helvetica,sans-serif; font-size: 11px; height: 70px; 
+margin: 0 0 10px; padding: 2px 2px 0; width: 188px;}
+
+
+.bop_form1{width:1094px; margin:0; padding:10px; float:left;}
+.bop_form1 .left{width:565px; margin:0; padding:0px; float:left; }
+.bop_form1 .left label{color: #000000; float: left; font-size: 11px; font-weight: bold; padding: 0 10px 0 0; text-align: right; width:128px;}	
+.bop_form1 .left textarea{background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #B3B3B3; float: left; font-family: Arial,Helvetica,sans-serif; font-size: 11px; height: 70px; margin: 0 0 8px; padding: 2px 2px 0; width:410px; height:120px;}
+
+.bop_form1 .right{width:529px; margin:0; padding:0px; float:left;;}
+.bop_form1 .right label{color: #000000; float: left; font-size: 11px; font-weight: bold; padding: 0 10px 0 0; text-align: left; width:37px;}	
+.bop_form1 .right textarea{background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #B3B3B3; float: left; font-family: Arial,Helvetica,sans-serif; font-size: 11px; height: 70px; margin: 0 0 8px; padding: 2px 2px 0; width:471px; height:120px;}
+.bop_form1 .btn{float:left; width:500px; padding-left:137px;}
+
+
+.bop_for_ryt{width:733px; padding:10px 0px; float:left; background:##fff;}
+
+
+.lft-bg2{ border-left:0px solid #5d8cc9; border-bottom:1px solid #cddfef; border-right:1px solid #5d8cc9; padding:0 5px 0 5px;}
+.lft-bg2 input[type=text]{ border: 1px solid #B3B3B3;width:180px; height:18px; font-size:11px;}
+
+
+/*
+.normaltd input[type=text]{ width:106px; height:18px; font-size:11px;}
+.normaltd select{width:106px; height:18px; font-size:11px; padding:0px; text-align:left !important;}
+.normaltd2 input[type=text]{ width:96px; height:18px; font-size:11px;}
+
+*/
+
+.normaltd{padding-top:3px; padding-bottom:3px;}
+
+.normaltd input[type=text] { border: 1px solid #B3B3B3;width:106px; height:18px; font-size:11px;}
+.normaltd select{ border: 1px solid #B3B3B3; width:106px; height:18px; font-size:11px; padding:0px; text-align:left !important;}
+
+.normaltd2 input[type=text]{ border: 1px solid #B3B3B3;width:96px; height:18px; font-size:11px;}
+

@@ -1,0 +1,64 @@
+2/4/2016
+1.25 hours
+Gloria needed help with invoicing. The invoice date was throuwing her off and caused loads to be billed when they weren't ready. i explained the system updates the invoice date based upon the status. I recommended she keep the loads in POD status until all the paperwork was ready to invoice.
+Had to review the load report with her PRECSION CONVERTERS name is not fitting on the report because of the new format. I advised we can wrap onto a new line or truncate the name in the middle. Spoke with Carolyn too and we determined they wanted it truncated instead of going to a new line. 
+Also addressed other issues and questions. 
+
+
+2/4/2016
+4 hours @ 50% discount
+Merge over 90 customer accounts that were re-added to Load Manager with different codes. 
+..add more verbage...
+
+1/25/2016 1/2
+gloria is having trouble sending email, she explained it was working fine but recently her recipients did not get the email. I tested the program and was able to send an email to myself. I asked if she was the only person having trouble and she said yes but that she uses a different email than Trey. I logged in with her and checked all her settings and did a test email to myself and to her. She did not receive the email but I did. I forarded her the email and now her email is showing both emails as part of the thread. This may be happening because she is sending her email using smtp.gmail.com and her email domain is robertbaseassociates.com. Some email servers will reject emails that do not have the same domain and the email server that is sending it. I changed the smtp server from TLS to SSL which improves security. Did another test and it worked ok. Told Gloria to resend an email to one of the carriers that did not receive it before and then call them to see if they got it.
+
+1/22/2016
+Report Modifications:
+Daily sales report
+reformat to make bold
+option for page break
+
+
+1/21/20116 1/2 hour
+Gloria said there are duplicate customers in AYB because not all of the customers in AYB are in Load Manager. However when adding the new customers in LM they did not enter in a matching customercode so now there are duplicate customers in AYB because the new customers added to LM where also added to AYB. I advised to mark the duplicates that she wants to get rid of with the text INACTIVE in the front of the company name and I would see what we can do about merging the accounts. I also created a query to list all of the new customers that were entered and email the list to Gloria.
+
+
+1/20/2016 1 hr
+Help Gloria resolve some issues with the AYB Import Export with different loads ( 215841, 300265, 215864, etc). Issues turned out to be one of 3 different things. Load had the wrong Status, only Loads with Invoice status get imported. Load did not have an invoice date. The Vendor Code was not setup. 
+Gloria was wanting to know how to clear out a vendor in AYB so she could change the Vendor Code in Load Manager and re-export the data. I advised how to do it but suggested we leave the ones that are already done and just enter in the new Vendor Code method going forward. Talked with Meridith to confirm that would be ok, it was. 
+Gloria said VRPA Inc is giving an insurance warning even though their insurance experation date is updated. I looked into it and found that the expiration of their main policy was entered however there was not expiration on the BIPD and CARGO insurances. Sent her a screen shot to explain.
+She showed me a report they run in the old Load Manager, where she enters the customer name and then a date range and then is able to see the sales for that customer. I showed her how to use the reporting system in Load Manager to create a similar report. 
+
+ 
+
+
+1/11/2016
+5:05pm
+do A/P invoicing
+load 300122
+remove contact, phone and fax numbers on all three sections
+do ap invoice. had to update contact. 
+
+load# 300151 is printing the final destination
+
+3:28pm
+10 min - In AYB cannot do copy and paste
+
+15 minThe "billing" computer, instead
+
+jeld wen doesn't come up. had to put in jeld-wen
+
+remove accessorial with no custcharge on it.
+15 min
+
+1/7/2015 - 1/8/2016 
+
+1 hour
+Training on how to use the Load Manager Import to AYB system. 
+
+2 hours
+gloria called because she ran an aging report and it is not showing all the invioces for True Religion. I can the report and looked at other reports and there is no history. I thought maybe the system added a duplicate customer and posted under the new account but when I checked this active was not new. So I looked for other companies with a similar name and it was shwoing 3 companies. I ran the report for the other company and the open invoices were there. 
+Gloria called again and said she is running the aging report and it is not showing a specific invoice. I looked for the Invoice/Load Number in load manager and found that it had a date of 1/7/2015 but she was enter a date up to 12/31/2015. I changed the date to 1/7/2015 and the invoice is showing on the again report now. 
+Gloria was asking why credit 4020 was still showing even though it was paid. I logged in to look at it and the history and I did not see if being paid and it still had a balance. I explained it has to be applied to an invoice. I showed her how to open the customer and applied the credit to an invoice. 
+Also answered other questions on running reports and posting information.

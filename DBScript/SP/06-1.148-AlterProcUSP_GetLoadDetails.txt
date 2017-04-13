@@ -1,0 +1,227 @@
+ALTER PROC [dbo].[USP_GetLoadDetails]
+
+(
+
+@LoadID VARCHAR(200),
+
+@StopNo int
+
+)
+
+AS
+
+BEGIN
+
+
+
+if ltrim(Rtrim(IsNull(@StopNo, ''))) = ''
+
+	set @StopNo = 0
+
+
+SELECT l.Loadid,l.LoadNumber,l.CarrierID AS CarrierID,
+	ISNULL(l.CustomerRatePerMile,0) AS CustomerRatePerMile,
+	ISNULL(l.CarrierRatePerMile,0) AS CarrierRatePerMile,
+	ISNULL(l.CustomerTotalMiles,0) AS CustomerTotalMiles,
+	ISNULL(l.CarrierTotalMiles,0) AS CarrierTotalMiles,
+	ISNULL(l.ARExported,'0') AS ARExportedNN,
+	ISNULL(l.APExported,'0') AS APExportedNN,
+	ISNULL(l.orderDate, '') AS orderDate,
+	ISNULL(l.customerMilesCharges, 0) AS customerMilesCharges,
+	ISNULL(l.carrierMilesCharges, 0) AS carrierMilesCharges,
+	ISNULL(l.customerCommoditiesCharges, 0) AS customerCommoditiesCharges,
+	ISNULL(l.carrierCommoditiesCharges, 0) AS carrierCommoditiesCharges,
+	ISNULL(l.CustFlatRate, 0) AS CustFlatRate,
+	ISNULL(l.carrFlatRate, 0) AS carrFlatRate,
+	l.ModifiedBy,
+	l.LastModifiedDate,
+	l.EquipmentID,
+	l.RefNo,
+	[Address]  as custaddress,
+	[City] as custcity,
+	[Statecode] as custstate,
+	[PostalCode] as custpostalcode,
+	[Phone] as custphone,
+	[Fax] as custfax,
+	[Cellno] as custcell,
+	[CustName] as custname,
+	[CustName] as CustomerName,
+	shipperStopDate,
+	consigneeStopDate,
+	shipperStopTime,
+	consigneeStopTime,
+	shipperStopTimeIn,
+	consigneeStopTimeIn,
+	shipperStopTimeOut,
+	consigneeStopTimeOut,
+	CustomerPONo,
+	StatusTypeID,
+	statusText,
+	colorCode,
+	PayerID,
+	TotalCustomerCharges,
+	shipperState,
+	shipperCity,
+	consigneeState,
+	consigneeCity,
+	CarrierName,
+	LoadStopID,
+	StopNo,
+	[NewPickupDate] as PickupDate,
+	[NewPickupTime] as PickupTime,
+	[NewDeliveryDate] as DeliveryDate,
+	[NewDeliveryTime] as DeliveryTime,
+	NewOfficeID,
+	NewNotes,
+	isPost,
+	TotalCarrierCharges,
+	TotalCustomerCharges,
+	NewCarrierID,
+	carrierNotes,
+	NewDispatchNotes,
+	DispatcherID,
+	SalesRepID,
+	shipperStopName,
+	consigneeStopName,
+	shipperLocation,
+	consigneeLocation,
+	shipperPostalCode,
+	consigneePostalCode,
+	shipperContactPerson,
+	consigneeContactPerson,
+	shipperPhone,
+	consigneePhone,
+	shipperFax,
+	consigneeFax,
+	shipperEmailID,
+	consigneeEmailID,
+	shipperReleaseNo,
+	consigneeReleaseNo,
+	shipperBlind,
+	consigneeBlind,
+	shipperInstructions,
+	consigneeInstructions,
+	shipperDirections,
+	consigneeDirections,
+	shipperLoadStopID,
+	consigneeLoadStopID,
+	shipperBookedWith,
+	consigneeBookedWith,
+	shipperEquipmentID,
+	consigneeEquipmentID,
+	shipperDriverName,
+	consigneeDriverName,
+	shipperDriverCell,
+	consigneeDriverCell,
+	shipperTruckNo,
+	consigneeTruckNo,
+	shipperTrailorNo,
+	consigneeTrailorNo,
+	shipperRefNo,
+	consigneeRefNo,
+	shipperMiles,
+	consigneeMiles,
+	shipperCustomerID,
+	consigneeCustomerID,EmergencyResponseNo,CODAmt,CODFee,DeclaredValue,Notes,PricingNotes,BOLNum
+FROM LOADS l
+left outer join (select 
+	a.LoadID,
+	a.LoadStopID,a.StopNo,
+	a.NewCarrierID,
+	a.NewOfficeID,
+	a.City AS shipperCity,
+	b.City AS consigneeCity,
+	a.custName AS shipperStopName,
+	b.custName AS consigneeStopName,
+	a.Address AS shipperLocation,
+	b.Address AS consigneeLocation,
+	a.PostalCode AS shipperPostalCode,
+	b.PostalCode AS consigneePostalCode,
+	a.ContactPerson AS shipperContactPerson,
+	b.ContactPerson AS consigneeContactPerson,
+	a.Phone AS shipperPhone,
+	b.Phone AS consigneePhone,
+	a.fax AS shipperFax,
+	b.fax AS consigneeFax,
+	a.EmailID AS shipperEmailID,
+	b.EmailID AS consigneeEmailID,
+	
+	a.StopDate AS shipperStopDate,
+	b.StopDate AS consigneeStopDate,
+	a.StopTime AS shipperStopTime,
+	b.StopTime AS consigneeStopTime,
+	a.TimeIn AS shipperStopTimeIn,
+	b.TimeIn AS consigneeStopTimeIn,
+	a.TimeOut AS shipperStopTimeOut,
+	b.TimeOut AS consigneeStopTimeOut,
+	a.ReleaseNo AS shipperReleaseNo,
+	b.ReleaseNo AS consigneeReleaseNo,
+	a.Blind AS shipperBlind,
+	b.Blind AS consigneeBlind,
+	a.Instructions AS shipperInstructions,
+	b.Instructions AS consigneeInstructions,
+	a.Directions AS shipperDirections,
+	b.Directions AS consigneeDirections,
+	a.LoadStopID AS shipperLoadStopID,
+	b.LoadStopID AS consigneeLoadStopID,
+	a.NewBookedWith AS shipperBookedWith,
+	b.NewBookedWith AS consigneeBookedWith,
+	a.NewEquipmentID AS shipperEquipmentID,
+	b.NewEquipmentID AS consigneeEquipmentID,
+	a.NewDriverName AS shipperDriverName,
+	b.NewDriverName AS consigneeDriverName,
+	a.NewDriverCell AS shipperDriverCell,
+	b.NewDriverCell AS consigneeDriverCell,
+	a.NewTruckNo AS shipperTruckNo,
+	b.NewTruckNo AS consigneeTruckNo,
+	a.NewTrailorNo AS shipperTrailorNo,
+	b.NewTrailorNo AS consigneeTrailorNo,
+	a.RefNo AS shipperRefNo,
+	b.RefNo AS consigneeRefNo,
+	a.Miles AS shipperMiles,
+	b.Miles AS consigneeMiles,
+	a.CustomerID AS shipperCustomerID,
+	b.CustomerID AS consigneeCustomerID,
+	a.StateCode as shipperState,
+	b.StateCode as consigneeState
+from LoadStops a 
+join LoadStops b on a.LoadID = b.LoadID and a.StopNo = b.StopNo
+
+
+where a.LoadID = case when @LoadID='' then a.LoadID
+
+else @LoadID end
+
+--where a.LoadID = @loadID 
+
+and a.LoadType = 1
+
+and b.LoadType = 2
+
+and a.StopNo =@StopNo
+
+AND b.StopNo =@StopNo) as stops  on stops.loadid = l.loadid
+
+
+
+left outer join (SELECT [CarrierID],[CarrierName] FROM [Carriers]) as carr on carr.CarrierID = stops.NewCarrierID
+
+left outer join (SELECT [CarrierOfficeID],[Manager]  FROM [CarrierOffices]) as office on office.CarrierOfficeID = stops.NewOfficeID
+
+left outer join (SELECT [StatusTypeID] as stTypeId,[statusText], [colorCode] FROM [loadStatusTypes]) as loadStatus on loadStatus.stTypeId = l.StatusTypeID
+
+left outer join (SELECT [StatusTypeID] as lststType,[StatusText] as lStatusText FROM [LoadStatusTypes]) as LStatusTypes on LStatusTypes.lststType = l.StatusTypeID
+
+--where l.LoadID = l.LoadID
+
+where l.LoadID = case when @LoadID='' then l.LoadID
+
+else @LoadID end
+
+order by loadStatus.statusText,loadnumber
+
+
+
+END
+
+

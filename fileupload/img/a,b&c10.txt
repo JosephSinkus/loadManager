@@ -1,0 +1,34 @@
+URL:  https://www.loadmanager.biz/0dev/www/webroot/index.cfm
+User: 0Dev
+Pw: T3chVers@nt
+
+1. Add a new field for Carrier Invoice#  - DONE
+	When we add a load we can enter Carrier Invoice # , In edit screen the field is readonly.
+	
+	File List
+	---------------
+	LoadManager\www\webroot\systemSetup.cfm
+	LoadManager\www\gateways\loadgateway.cfc
+	LoadManager\www\gateways\loadgatewayUpdate.cfc
+	LoadManager\www\views\pages\load\addload.cfm
+	
+	Sp Change
+	--------------
+	USP_InsertLoad
+	USP_GetLoadDetails
+	
+2 . Allow any user to add Dispatch Notes in the Load entry screen even if the load has reached a load lock status. - DONE
+	
+	File List
+	---------------
+	LoadManager\www\views\pages\load\addload.cfm
+	LoadManager\www\gateways\loadgateway.cfc
+	
+3 . Fix bottom of my loads screen as shown in video - DONE
+
+	File List
+	-------------
+	LoadManager\www\views\pages\load\disp_load.cfm
+
+4 . Allow & and , in filenames for upload  - Issue not found ( Validation only added for comma not for & )
+	

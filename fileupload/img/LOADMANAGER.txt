@@ -1,0 +1,42 @@
+FTP: 216.15.209.51
+User: 0Dev
+Pw: T3chVers@nt
+ 
+URL:  https://www.loadmanager.biz/0dev/www/webroot/index.cfm
+User: 0Dev
+Pw: T3chVers@nt
+ 
+SQL:  66.201.99.121
+User: 0Dev
+PW: T3chVers@nt
+
+
+TASK
+
+LoadManager Project : (Get details from Arun if you do not have)
+Video to explain below tasks: https://youtu.be/OiV1sAWwLNs 
+
+1) Add a new field for Carrier Invoice#
+Objective: Allow the user an option of entering in an invoice# for the carrier. Currently we use the Load# as the carrier invoice however many carriers have their own invoice number and it is often better to use that instead of the Load#. However not all of our customers want this so we need the option of displaying the Carrier Invoice# entry or not.
+Create a new system setup option called “Enter Carrier Invoice#”. This is true/false field with a default value of false. If this is set to true display the Carrier Invoice# field below the Invoice Date Field as shown in the video.
+
+E:\Suvarna\LoadManager\www\webroot\systemSetup.cfm
+E:\Suvarna\LoadManager\www\gateways\loadgateway.cfc
+E:\Suvarna\LoadManager\www\gateways\loadgatewayUpdate.cfc
+E:\Suvarna\LoadManager\www\views\pages\load\addload.cfm
+[USP_InsertLoad] 
+USP_GetLoadDetails
+
+2) Objective: Allow any user to add Dispatch Notes in the Load entry screen even if the load has reached a load lock status.
+Let me elaborate and suggest how to do this. We have a feature that will lock the load once the load Status reaches a pre-determined status as defined in the System Setup. Once a load reaches this status or a status further on the list, only Administrators can edit the load. 
+This is similar to the user Defined fields as shown in the video. When you edit those you will see a pencil appear to the right of the field when you click into it and it saves when you click or tab out (pencil disappears).
+Note there are two “edit” modes for dispatch notes. One is to Add notes only and the other is to edit directly into the notes as shown in the video.
+
+E:\Suvarna\LoadManager\www\views\pages\load\addload.cfm
+
+3) Fix bottom of my loads screen as shown in video (17 6)   - *******
+E:\Suvarna\LoadManager\www\views\pages\load\disp_load.cfm
+
+4) Allow & and , in filenames for upload - No issue with & only issue with Comma   *******
+ 
+I assume this task will take a few hours. I am hoping not more than 2 or 3 hours. If it's a lot more please let me know, otherwise please proceed. The next task with SaferWatch API integration will be more involved. Then we will move onto the GPS work.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<privileges>
+	<privilege id="1" name="General Access">
+		<event name="login" />
+		<event name="login:process" />
+		<event name="passwordExpired" />
+		<event name="changePassword:Form" />
+		<event name="changePassword:Success" />
+		<event name="changePassword:Process" />
+		<event name="logout:process" />
+		<event name="noPrivileges" />
+		<event name="lostPassword" />
+		<event name="emailLostPassword" />
+		<event name="dashboard" />
+		<object name="navMainDashboard" />
+		<object name="navMainLogout" />
+		<event name="showcalendar" />
+		<event name="JSLocateTopFrame" />
+		<event name="getImage" />
+		<event name="DashboardDefault" />
+	</privilege>
+</privileges>

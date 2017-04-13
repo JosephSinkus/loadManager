@@ -1,0 +1,13 @@
+SMART FREIGHT BROKER FEATURES
+
+It's smart logistics integration with other products makes it a great tool for managing day to day operations of your logistics company. You can overcome such problems as lost paperwork, missed oads and deadlines.
+
+1) please remove or fix cornerstone
+2) Pages https://www.loadmanager.com/shop/ https://www.loadmanager.com/freight-broker-product/ are showing "price per month" for NON-subscription products. See products GPS Vehicle Tracking Device and QuickBooks Integration Module.
+3) GTMetrix is down again to B and C. 
+4) You mentioned that you were going to revert to twenty sixteen. Did you do that and what was that going to fix?5) Are you able to fix CVV issue when using a saved credit card?
+6) Please send video or screen shot to refresh cache
+
+zain, bilal
+
+

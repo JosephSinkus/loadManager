@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<messages>
+	<message id="1" type="fail">Login Failure</message>
+	<message id="2" type="fail">Either you are not logged in, or your session has timed out.  Please login again.</message>
+	<message id="3" type="success">Logout Successful</message>
+	<message id="4" type="success">Your password has been reset and emailed to you</message>
+	<!-- e.g. 
+	<message id="1" type="success">User added successfully</message>
+	<message id="2" type="fail">Invalid Username and Password</message>
+	-->
+	<!-- Clients -->
+	<message id="10" type="success">Client added successfully</message>
+	<message id="11" type="success">Client updated successfully</message>
+	<message id="12" type="success">Client archived successfully</message>
+	<message id="13" type="success">Client Deleted successfully</message>
+	<message id="14" type="success">Client UnArchived successfully</message>
+	<message id="15" type="success">Preferred Client Added successfully</message>
+	<!-- Contacts -->
+	<message id="20" type="success">Contact added successfully</message>
+	<message id="21" type="success">Contact updated successfully</message>
+	<message id="22" type="success">Contact archived successfully</message>
+	<message id="23" type="success">Contact deleted successfully</message>
+	<message id="24" type="success">Contact UnArchived successfully</message>
+	<message id="25" type="success">Contact Linked to Client Successfully</message>
+	
+	<message id="30" type="success">Candidate License added Successfully</message>
+	
+	<!-- Banking Administration -->
+	<message id="40" type="fail">Could not Delete Bank Because there are Candidates Linked to it.</message>
+	<message id="41" type="success">Bank has been successfully Deleted.</message>
+	<message id="42" type="fail">Could not Delete Branch Because there are Candidates Linked to it.</message>
+	<message id="43" type="success">Branch has been successfully Deleted.</message>
+	
+	<!--Indemnity Administration -->
+	<message id="45" type="success">Indemnity Provider Deleted Successfully</message>
+	<message id="46" type="fail">Could not delete Indemnity Provider because there are Candidates Linked linked to it</message>
+	
+	<!--LicenseBody Administration -->
+	<message id="49" type="success">License Body Deleted Successfully</message>
+	<message id="50" type="fail">Could not delete License Body because there are Licenses linked to it</message>
+	<message id="51" type="success">License Deleted Successfully</message>
+	<message id="52" type="fail">Could not delete License because there are Candidates linked to it</message>
+	
+	<!--Regional Office Administration -->
+	<message id="55" type="success">Regional Office Deleted Successfully</message>
+	<message id="56" type="fail">Could not delete Regional Office because there are candidates linked to it</message>
+	
+	<!--Geographic Location Administration -->
+	<message id="60" type="success">Geographic Location Deleted Successfully</message>
+	<message id="61" type="fail">Could not Delete Geographic Location because there are clients linked to it</message>
+	<message id="62" type="fail">Could not Delete Geographic Location because there are candidates linked to it</message>
+	
+	<!--Ward Classification Administration -->
+	<message id="65" type="success">Ward Classification deleted successfully</message>
+	<message id="66" type="fail">Ward Classification could not be deleted because there are clients linked to it</message>
+	
+	<!--Designation Administration -->
+	<message id="70" type="success">Designation has been deleted successfully</message>
+	<message id="71" type="fail">Designation could not be deleted because there are clients linked to it</message> 
+	
+	<!--Tariff Administration -->
+	<message id="74" type="success">Tariff Region deleted successfully</message>
+	<message id="75" type="fail">Tariff Region could not be deleted because there are clients linked to it</message>
+
+	<!--Client Requests & Placements -->
+	<message id="80" type="success">Client Request Added Successfully</message>
+	<message id="81" type="success">Client Request Removed Successfully</message>
+	<message id="82" type="success">Placement Removed Successfully</message>
+	<message id="83" type="success">Work Register Placement Removed Successfully</message>
+	<message id="84" type="success">Work Register Placement Line Item Removed Successfully</message>
+	
+	<!-- Financial Component -->
+	<message id="85" type="success">Pay Run Successfully Executed</message>
+	<message id="86" type="success">Pay Run Successfully Revoked / Rolled Back</message>
+	
+	<!-- Candidate -->
+	<message id="90" type="fail">A Candidate Already exists with the same Employee Code OR with the same ID/Passport Number. Please Try Again</message>
+	<message id="91" type="success">Candidates have been notified successfully.</message>
+
+	<message id="92" type="success">File Added successfully</message>
+	<message id="93" type="fail">The file you have tried to upload is in the incorrect format</message>
+	<message id="94" type="success">File Deleted successfully</message>
+	
+	<!-- Client Departments -->
+	<message id="95" type="fail">Cannot delete department because it is linked to a request or placement that must still occur</message>
+	<message id="96" type="success">Department deleted successfully</message>
+</messages>

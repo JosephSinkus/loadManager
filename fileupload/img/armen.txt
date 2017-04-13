@@ -1,0 +1,34 @@
+Dispatcher = sales rep
+
+Tristar Transit
+12410 Foothill Blvd
+91342
+818-468-2465
+
+1) needs the quickpay to be sepereate on screen and on report
+2) must have the carrer qpay rate on each carrier and flow over to the load. 
+3) search for customer by customercode
+4) agent can enter all info on the load but cannot enter in the customer and then it goes to admin for finish entering customer.
+5) abiltiy to put customer on HOLD in addition to the active and inactive.
+6) Do not assign a load number until the load is booked and customer is approved by admin. 
+7) Wants to change the Status list to show only booked, etc. 
+8) Based the Commision Date criteria from the date the load is entered. 
+9) dispatcher to run their own commission report
+   branch mgr to have access to all commisions in their branch
+   Option to company owner to see each branch or all branch. 
+10) abiltiy to import EFS - TCHEK with Load Number. 
+11) Modify the load lane search to only show the carrier information with no drill down. only show last 30. 
+    Would need to return load information from all offices. 
+12) Abiltiy to have drop down of offices for load listing. 
+13) Ability to show dispatcher ranking with now dollars just a rank number for all branches. 
+14) Commission schedule, by month. set amounts i.e. $0 - $3000 x%, from $3000 - 5000 xx %, etc
+
+New Roles for:
+   -At this point nobody but Admin can change it. Must have new role for this. 
+   -Branch Office mgr can see all loads in their branch office. 
+   -Agent can only see the loads they enter
+
+Commissions:
+  $5000 sale $4000 pay = $1000 profit
+  Commission based on Flat Rate only. 
+

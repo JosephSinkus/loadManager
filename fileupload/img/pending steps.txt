@@ -1,0 +1,13 @@
+here are the pending items:
+1) shopping cart changes as per screen shots
+X 2) mixed content
+3) project supremacy
+4) X Theme activation
+5) woocommerce subscription's activation message.
+6) how to handle the Total $$ shown throughout the checkout process
+7) gtmatrix cache steps
+
+finance
+allow edit of dispatch notes
+
+V8FK6-4T8TB-KHHTH-FVQ2M-M9TQD
