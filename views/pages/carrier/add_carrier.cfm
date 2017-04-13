@@ -293,7 +293,7 @@
 		<cfinvoke component="#variables.objCarrierGateway#" method="getlifmcaDetails" returnvariable="request.qrygetlifmcaDetails">
 			<cfinvokeargument name="carrierid" value="#url.carrierid#">
 		</cfinvoke>
-		<cfif not structkeyexists(url,"apidetails")>
+		<cfif not structkeyexists(url,"apidetails") and not structkeyexists(url,"saferWatchUpdate")>
 			<cfif request.qrygetlifmcaDetails.recordcount>
 				<cfset variables.InsuranceCompanyName=request.qrygetlifmcaDetails.InsuranceCompanyName>
 				<cfset variables.InsuranceCompanyAddress=request.qrygetlifmcaDetails.InsuranceCompanyAddress>
@@ -332,7 +332,7 @@
 	</cfif--->
 	<cfset variables.objunitGateway = getGateway("gateways.unitgateway", MakeParameters("dsn=#Application.dsn#,pwdExpiryDays=#Application.pwdExpiryDays#")) >
 	<cfinvoke component="#variables.objunitGateway#" method="getloadUnits" status="True" returnvariable="request.qUnits" />
-<cfif isDefined("url.carrierid") and len(url.carrierid) and not structkeyexists(url,"apidetails")>
+<cfif isDefined("url.carrierid") and len(url.carrierid) and not structkeyexists(url,"apidetails") and not structkeyexists(url,"saferWatchUpdate")>
 	
 	<cfinvoke component="#variables.objCarrierGateway#" method="getLIWebsiteData" returnvariable="request.qLiWebsiteData">
 		<cfinvokeargument name="carrierid" value="#url.carrierid#">
@@ -375,12 +375,12 @@
 				<cfinvokeargument name="DOTNumber" value="#DOTNumber#">
 			</cfinvoke>
 			<cfif  IsStruct(variables.responsestatus) AND structKeyExists(variables.responsestatus,"ResponseDO") AND variables.responsestatus.ResponseDO.action EQ "OK" AND structKeyExists(variables.responsestatus,"CarrierDetails")>								
-				<cfif structKeyExists(variables.responsestatus ,"CarrierDetails") AND structKeyExists(variables.responsestatus .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.responsestatus .CarrierDetails.RiskAssessment,"Overall")  >
+				<cfif structKeyExists(variables.responsestatus ,"CarrierDetails") AND variables.responsestatus.CarrierDetails.dotNumber EQ  DOTNumber AND variables.responsestatus.CarrierDetails.docketNumber EQ "MC#MCNumber#" AND structKeyExists(variables.responsestatus .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.responsestatus .CarrierDetails.RiskAssessment,"Overall")  >
 					<cfset risk_assessment = variables.responsestatus .CarrierDetails.RiskAssessment.Overall>
-				</cfif>						
-			</cfif> 
+				</cfif>					
+			</cfif>
 		</cfif>
-		 <cfset CellPhone=request.qCarrier.Cel>
+		 <cfset CellPhone=request.qCarrier.Cel> 
 		 <cfset Fax=request.qCarrier.Fax> 
 		 <cfset Tollfree=request.qCarrier.Tollfree>
 		 <cfset Email=request.qCarrier.EmailID>
@@ -450,6 +450,9 @@
 	<cfif structkeyexists(url,"apidetails")>
 		<cfset editid=#url.carrierid#>
 		<cfset getMCNoURL="index.cfm?event=addcarrier&carrierid=#url.carrierid#&#session.URLToken#"> 
+	<cfelseif structkeyexists(url,"saferWatchUpdate")>
+		<cfset editid=#url.carrierid#>
+		<cfset getMCNoURL="index.cfm?event=addcarrier&carrierid=#url.carrierid#&#session.URLToken#">
 	<cfelse>
 		<cfset getMCNoURL="index.cfm?event=addcarrier&#session.URLToken#">
 		 
@@ -549,7 +552,13 @@
 		  <cfelse>
 			<cfinput name="Save" type="submit" class="normal-bttn" value="Save" onclick="return validateCarrier(frmCarrier,'#application.dsn#');" onfocus="checkUnload();" style="width:44px;" />
 		  </cfif>	
-			<cfinput name="Update" id="update_btn" type="button" class="normal-bttn"  onclick="return getConfirmation();" value="Update Via FMCSA" style="width:62px;line-height:15px;" />	
+		  <cfif request.qGetSystemSetupOptions.SaferWatch EQ 1 >			
+				<cfinput name="Update" id="update_btn" type="button" class="normal-bttn"  onclick="return getsaferwatchConfirmation();"      value="Update Via SaferWatch" style="width:64px;line-height:15px;" />	
+		  <cfelse>
+			<cfset variables.updateLabel = "">
+			<cfinput name="Update" id="update_btn" type="button" class="normal-bttn"  onclick="return getConfirmation();"      value="Update Via FMCSA" style="width:64px;line-height:15px;" />	
+		  </cfif>
+			
 		</div>
 	</div>
 	</h1>

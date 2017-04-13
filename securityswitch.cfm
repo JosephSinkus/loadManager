@@ -97,6 +97,7 @@
 					<cfif CheckObjectAccess("navMainClients")>
 						<cflocation url="index.cfm?event=SearchClient" addtoken="yes" />
 					<cfelse>
+						<cfinvoke component="#variables.objloadGateway#" method="GetChangedCarriers" returnvariable="session.message" />								
 						<cflocation url="index.cfm?event=Myload" addtoken="yes" />
 					</cfif>
 				</cfif>

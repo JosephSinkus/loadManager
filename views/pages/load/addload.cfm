@@ -3712,7 +3712,7 @@ $(function() {
 					strHtml = strHtml + "<input name='carrierID' id='carrierID' type='hidden' value='"+ui.item.value+"' />"
 					strHtml = strHtml + "<div class='clear'></div>"
 					if(ui.item.risk_assessment != ""){
-						strHtml = strHtml + "<label><a href='"+ui.item.link+"'><img src='"+ui.item.risk_assessment+"' alt='Risk Assement Icon'></a></label>"
+						strHtml = strHtml + "<label><a target='_blank' href='"+ui.item.link+"'><img src='"+ui.item.risk_assessment+"' alt='Risk Assement Icon'></a></label>"
 					}else{
 						strHtml = strHtml + "<label>&nbsp;</label>"
 					}					
@@ -3767,7 +3767,7 @@ $(function() {
 		$(tag).data("ui-autocomplete")._renderItem = function(ul, item) {
 			//console.log(item);
 			if(item.risk_assessment != ""){
-				var url = "<a href='"+item.link+"'><img src='"+item.risk_assessment+"' alt='Risk Assement Icon'></a>";
+				var url = "<a target='_blank' href='"+item.link+"'><img src='"+item.risk_assessment+"' alt='Risk Assement Icon'></a>";
 			}else{
 				var url = "";
 			}

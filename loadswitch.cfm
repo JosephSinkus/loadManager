@@ -89,7 +89,7 @@
 					</cfswitch>
 				</cfif>
 			</cfcase>
-			<cfcase value="myLoad">			  
+			<cfcase value="myLoad">			 
 			     <!---<cfinvoke component="#variables.objloadGateway#" method="getAllLoads" returnvariable="request.qLoads" />--->
 				 <!--- <cfdump var="#request.qLoads#"> --->
 				 <cfset request.myLoadsAgentUserName = session.AdminUserName>
@@ -98,7 +98,7 @@
 				<cfset includeTemplate("views/templates/maintemplate.cfm") />
 			</cfcase>
 			<cfcase value="feedback"> 		
-                 <cfset request.myLoadsAgentUserName = session.AdminUserName>
+                 <cfset request.myLoadsAgentUserName = session.AdminUserName>				 
 				 <cfset request.subnavigation = includeTemplate("views/admin/loadNav.cfm", true) />
 				 <cfset request.content = includeTemplate("views/pages/load/disp_feedback.cfm", true) />
 				<cfset includeTemplate("views/templates/maintemplate.cfm") />

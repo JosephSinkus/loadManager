@@ -1,4 +1,5 @@
 <cftry>
+	<cfparam name="carrierid" default="0">
 	<cfset session.AuthType_Common_status="">
 	<cfset session.AuthType_Common_appPending="">
 	<cfset session.AuthType_Contract_status="">
@@ -19,6 +20,11 @@
 		<cfset DOTNumber = url.DOTNumber> 
     </cfif>
 	
+	<cfquery name="qSystemSetupOptions" datasource="#Application.dsn#">
+			SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,FreightBroker,SaferWatchUpdateCarrierInfo
+			FROM SystemConfig
+	</cfquery>	
+	
 	<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=CarrierLookup&ServiceKey=#SaferWatchWebKey#&CustomerKey=#SaferWatchCustomerKey#&number=#DOTNumber#" method="get" >
 	</cfhttp>
 	
@@ -26,25 +32,46 @@
 		<cfset variables.responsestatus = structNew()>		
 		<cfset variables.responsestatus = ConvertXmlToStruct(cfhttp.Filecontent, StructNew()) >
 		<cfif  variables.responsestatus.ResponseDO.action EQ "OK" AND structKeyExists(variables.responsestatus,"CarrierDetails")>								
-				<cfif structKeyExists(url,"dump")>
-					<cfdump var="#responsestatus#">					
-					<cfabort>
+				
+				<cfif (qSystemSetupOptions.SaferWatchUpdateCarrierInfo AND carrierid GT 0 ) OR (carrierid EQ 0) >
+					<cfset CarrierName 		= variables.responsestatus.CarrierDetails.Identity.legalName>
+					<cfset  Address 				= variables.responsestatus.CarrierDetails.Identity.businessStreet>				
+					<cfset  City 						= variables.responsestatus.CarrierDetails.Identity.businessCity>
+					<cfset  StateValCODE 	= variables.responsestatus.CarrierDetails.Identity.businessState>
+					<cfset  State11					= StateValCODE>
+					<cfset  Zipcode 				= variables.responsestatus.CarrierDetails.Identity.businessZipCode>
+					<cfset  Country1				= variables.responsestatus.CarrierDetails.Identity.businessCountry>
+					<cfset  Phone 					= variables.responsestatus.CarrierDetails.Identity.businessPhone>
+					<cfset  businessPhone	= variables.responsestatus.CarrierDetails.Identity.businessPhone>
+					<cfset  Fax 						= variables.responsestatus.CarrierDetails.Identity.businessFax>
+					<cfset  Dotnumber 			= variables.responsestatus.CarrierDetails.dotNumber>
+					<cfset  Email 					=  replace(variables.responsestatus.CarrierDetails.Identity.emailAddress,' ','','all')>
+					 <cfset org_Dotnumber	=Dotnumber>
+				<cfelseif qSystemSetupOptions.SaferWatchUpdateCarrierInfo EQ 0 AND carrierid GT 0  >
+					<cfinvoke component="#variables.objCarrierGateway#" method="getAllCarriers" returnvariable="request.qCarrier">
+						<cfinvokeargument name="carrierid" value="#carrierid#">
+					</cfinvoke>
+					<cfset CarrierName		=request.qCarrier.CarrierName>
+					 <cfset Address				=request.qCarrier.Address>
+					 <cfset StateValCODE	=trim(request.qCarrier.StateCODE)>					
+					 <cfset City						=request.qCarrier.City>
+					 <cfset Zipcode				=request.qCarrier.Zipcode>
+					 <cfset Country1				=request.qCarrier.Country>
+					 <cfset Phone					=request.qCarrier.Phone>
+					 <cfset Fax						=request.qCarrier.Fax> 
+					  <cfset Email					=request.qCarrier.EmailID>
+					  <cfset Dotnumber			=request.qCarrier.DOTNUMBER>
+					 <cfset org_Dotnumber	=request.qCarrier.DOTNUMBER>
 				</cfif>
-				<cfset CarrierName 		= variables.responsestatus.CarrierDetails.Identity.legalName>		
-				<cfset MCNumber    		= right(variables.responsestatus.CarrierDetails.docketNumber,len(variables.responsestatus.CarrierDetails.docketNumber)-2)>
-				<cfset  Dotnumber 			= variables.responsestatus.CarrierDetails.dotNumber>				
-				<cfset  Address 				= variables.responsestatus.CarrierDetails.Identity.businessStreet>				
-				<cfset  City 						= variables.responsestatus.CarrierDetails.Identity.businessCity>
-				<cfset  StateValCODE 	= variables.responsestatus.CarrierDetails.Identity.businessState>
-				<cfset  State11					= StateValCODE>
-				<cfset  Zipcode 				= variables.responsestatus.CarrierDetails.Identity.businessZipCode>
-				<cfset  Country1				= variables.responsestatus.CarrierDetails.Identity.businessCountry>
-				<cfset  Phone 					= variables.responsestatus.CarrierDetails.Identity.businessPhone>
-				<cfset  businessPhone	= variables.responsestatus.CarrierDetails.Identity.businessPhone>
-				<cfset  Fax 						= variables.responsestatus.CarrierDetails.Identity.businessFax>				
+										
+				<cfset MCNumber    		= right(variables.responsestatus.CarrierDetails.docketNumber,len(variables.responsestatus.CarrierDetails.docketNumber)-2)>																
 				<cfset  CellPhone 			= variables.responsestatus.CarrierDetails.Identity.cellPhone>
-				<cfset  Email 					=  variables.responsestatus.CarrierDetails.Identity.emailAddress>				
+								
 				<cfset  InsExpDateLive =  variables.responsestatus.CarrierDetails.Identity.emailAddress>
+				<cfif org_Dotnumber EQ variables.responsestatus.CarrierDetails.dotNumber >
+					<cfset risk_assessment = variables.responsestatus .CarrierDetails.RiskAssessment.Overall>
+				</cfif>
+				<cfset bit_addWatch 		= 1 >
 				
 				<cfif IsStruct(variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList)>
 					<cfif IsArray(variables.responsestatus.CarrierDetails.FMCSAInsurance.PolicyList.PolicyItem)>

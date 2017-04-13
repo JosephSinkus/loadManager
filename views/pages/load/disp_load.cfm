@@ -149,6 +149,11 @@
 
 <!---<cfif isdefined("message") and len(message)>--->
 <div id="message" class="msg-area" style="display:none;">No match found</div>
+<cfif structKeyExists(session,"message") AND session.message NEQ "" >
+	<div class="col-md-12">&nbsp;</div>
+	<div id="messageLoadsExportedForCustomer" class="msg-area">#session.message#</div>
+	<cfset session.message = "">
+</cfif>
 <div id="messageLoadsExportedForCustomer" class="msg-area" style="display:none;"></div>
 <div id="messageLoadsExportedForCarrier" class="msg-area" style="display:none;"></div>
 <div id="messageLoadsExportedForBoth" class="msg-area" style="display:none;"></div>

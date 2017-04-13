@@ -1073,15 +1073,14 @@
 		</cfhttp>	
 		<cfif cfhttp.Statuscode EQ '200 OK'>	
 			<cfset variables.resStruct = ConvertXmlToStruct(cfhttp.Filecontent, StructNew())>
-			<cfif structKeyExists(variables.resStruct ,"CarrierDetails") AND structKeyExists(variables.resStruct .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.resStruct .CarrierDetails.RiskAssessment,"Overall")  >
+			<cfif structKeyExists(variables.resStruct ,"CarrierDetails") AND variables.resStruct.CarrierDetails.dotNumber EQ  arguments.DOTNumber AND variables.resStruct.CarrierDetails.docketNumber EQ arguments.MCNumber AND structKeyExists(variables.resStruct .CarrierDetails,"RiskAssessment") AND structKeyExists(variables.resStruct .CarrierDetails.RiskAssessment,"Overall")  >
 				<cfset risk_assessment = variables.resStruct .CarrierDetails.RiskAssessment.Overall>
 			</cfif>			
 		<cfelse>
 			<cfreturn "">
 		</cfif>
 		<cfreturn risk_assessment>
-	</cffunction>
-	
+	</cffunction>	
 	
 	<!--- Carrier Lookup--->
 	<cffunction name="CarrierLookup" access="public"  returntype="any">

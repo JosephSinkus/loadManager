@@ -5112,6 +5112,69 @@
 			<cfreturn loads>
 	</cffunction>		
 	
+	<!--- GetChangedCarriers--->
+	<cffunction name="GetChangedCarriers" access="public"  returntype="any">				
+		<cfset msg =  "">
+		<cfquery name="qSystemSetupOptions" datasource="#variables.dsn#">
+	    	SELECT SaferWatch,SaferWatchWebKey,SaferWatchCustomerKey,SaferWatchUpdateCarrierInfo,SaferWatchCarrierUpdatedDate
+			FROM SystemConfig
+	    </cfquery>
+		<cfif qSystemSetupOptions.SaferWatch EQ 1 AND  qSystemSetupOptions.SaferWatchUpdateCarrierInfo EQ  1 AND qSystemSetupOptions.SaferWatchCarrierUpdatedDate NEQ Dateformat(now()-1,'yyyy-mm-dd')>			
+			<cftry>
+				<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=GetChangedCarriers&ServiceKey=#qSystemSetupOptions.SaferWatchWebKey#&CustomerKey=#qSystemSetupOptions.SaferWatchCustomerKey#&pageIndex=BEGIN&fromDate=#Dateformat(qSystemSetupOptions.SaferWatchCarrierUpdatedDate,'yyyy-mm-dd')#&fromTime=00:00:00&toDate=#Dateformat(now()-1,'yyyy-mm-dd')#&toTime=00:00:00" method="get" >
+				</cfhttp>	
+				<cfif cfhttp.Statuscode EQ '200 OK'>	
+					<cfset variables.resStruct = ConvertXmlToStruct(cfhttp.Filecontent, StructNew())>							
+					<cfloop from="1" to="#ArrayLen(variables.resStruct.CarrierList.CarrierDetails)#" index="i">				
+							<cfset McNumber = right(variables.resStruct.CarrierList.CarrierDetails[i].docketNumber,len(variables.resStruct.CarrierList.CarrierDetails[i].docketNumber)-2)>
+							<cfset dotNumber = variables.resStruct.CarrierList.CarrierDetails[i].dotNumber>
+							<cfquery name="qrygetFilterCarriers" datasource="#Application.dsn#">
+								SELECT MCNumber,DOTNumber,car.CarrierID
+								FROM Carriers car
+									LEFT  JOIN lipublicfmcsa li 	ON car.CarrierID=li.carrierId
+								WHERE  car.MCNumber='#McNumber#'
+								AND  car.DOTNumber= #dotNumber#
+							</cfquery >
+							
+							<cfif valueList(qrygetFilterCarriers.CarrierID) NEQ "">
+								<cfquery name="qryupdate" datasource="#Application.dsn#">				
+											UPDATE Carriers 
+											SET 
+											CarrierName=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.legalName#">,
+											Address=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessStreet#">,
+											StateCode = <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessState#">,
+											Zipcode=   <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessZipCode#">,				
+											LastModifiedBy= <cfqueryparam cfsqltype="cf_sql_varchar" value="#session.adminUserName#">,
+											LastModifiedDateTime=<cfqueryparam cfsqltype="cf_sql_date" value="#Now()#">,
+											City= <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessCity#">,
+											Phone=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessPhone#">,
+											Fax=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.businessFax#">,
+											Cel=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.cellPhone#">,
+											EmailID=  <cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.resStruct.CarrierList.CarrierDetails[i].Identity.emailAddress#">,				
+											DOTNumber=<cfqueryparam cfsqltype="cf_sql_varchar" value="#dotNumber#">			
+											,MCNumber = <cfqueryparam cfsqltype="cf_sql_varchar" value="#McNumber#">
+											,SaferWatch = 1
+											WHERE  CarrierID IN (<cfqueryparam cfsqltype="cf_sql_varchar" list="yes"  value="#valueList(qrygetFilterCarriers.CarrierID)#">)	
+								</cfquery >
+							</cfif>													
+						</cfloop>					
+							<cfhttp url="http://www.saferwatch.com/webservices/CarrierService32.php?Action=AddChangedCarriers&ServiceKey=#qSystemSetupOptions.SaferWatchWebKey#&CustomerKey=#qSystemSetupOptions.SaferWatchCustomerKey#&pageIndex=BEGIN&fromDate=#Dateformat(now()-3,'yyyy-mm-dd')#&fromTime=00:00:00&toDate=#Dateformat(now()-1,'yyyy-mm-dd')#&toTime=00:00:00" method="get" >
+							</cfhttp>
+						<cfset msg = "Changed carriers details updated successfully.">
+						<cfquery name="qryupdateCarrierUpdateDate" datasource="#Application.dsn#">
+							UPDATE SystemConfig SET SaferWatchCarrierUpdatedDate = '#Dateformat(now()-1,'yyyy-mm-dd')#'
+						</cfquery >
+				<cfelse>
+					<cfset msg =  "">
+				</cfif>	
+			<cfcatch>
+				<cfset msg =  "Cannot Update changed carriers details.">
+			</cfcatch>				
+			</cftry>					
+		</cfif>
+		<cfreturn msg >
+	</cffunction>
+	
 	<cffunction name="ConvertXmlToStruct" access="public" returntype="struct" output="true"  hint="Parse raw XML response body into ColdFusion structs and arrays and return it.">
 		<cfargument name="xmlNode" type="string" required="true" />
 		<cfargument name="str" type="struct" required="true" />		
